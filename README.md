@@ -8,7 +8,7 @@ BANCO DE DADOS:
 - Ana Rubia de Almeida
 - Vinicius Brolezzi Gaban
  
-BACK-END:
+BACK-END: 
 -Cláudia Giovana  Z. Francisco
 -Davi Vinicius Correa
 
