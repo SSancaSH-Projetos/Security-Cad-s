@@ -112,7 +112,9 @@ Os administradores terão total acesso às informações sobre quais armários e
 
 **Equipamentos:**
 - Microcontrolador (por exemplo, Arduino):
+  
   - Funcionalidade: Serve como o cérebro do sistema, controlando a lógica de bloqueio/desbloqueio.
+    
   - Custo:
 
 - Motor de passo ou servo motor:
