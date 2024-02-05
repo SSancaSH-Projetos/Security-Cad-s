@@ -40,7 +40,7 @@ Os administradores terão total acesso às informações sobre quais armários e
 
 ● Possíveis Falhas: Falhas técnicas podem comprometer o acesso aos armários, demandando atenção imediata.
 
-- Necessidade de Manutenções e Atualizações Constantes: Manutenções regulares e atualizações são essenciais para garantir a eficiência e segurança contínua do sistema.
+● Necessidade de Manutenções e Atualizações Constantes: Manutenções regulares e atualizações são essenciais para garantir a eficiência e segurança contínua do sistema.
 
 ## 4. Cronograma
 
