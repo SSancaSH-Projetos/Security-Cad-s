@@ -163,13 +163,13 @@ Os administradores terão total acesso às informações sobre quais armários e
   
   - Funcionalidade: São necessárias para a montagem física e conexão elétrica dos componentes.
     
-  - Custo:
+  - Custo: 
 
 - Leitor RFID (Radio-Frequency Identification):
   
   - Funcionalidade: Detecta e lê a informação do cartão RFID.
     
-  - Custo: 
+  - Custo: R$ 80,00
 
 **Total Geral:**
 - Pessoal: $0
