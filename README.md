@@ -189,6 +189,9 @@ Os administradores terão total acesso às informações sobre quais armários e
 
 - Como administrador, gostaria de ver quais armários estão desocupados para disponibilizá-los para outros usuários.
   - Critérios de Aceitação: O administrador terá acesso a todos os armários, assim saberá quais estão ocupados.
+ 
+- Como usuario, gostaria de ser informado todas as vezes que o meu armario foi aberto, para assim ter controle sobre ele.
+  - Criterio de Aceitação: O usuário receberá uma notificação em seu celular todas as vezes em que o armario for aberto, evitando furtos.
 
 ## 8. Avaliação do Projeto
 
