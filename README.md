@@ -118,8 +118,8 @@ Os administradores terão total acesso às informações sobre quais armários e
   - Custo:
 
 - Motor de passo ou servo motor:
-
-  - Funcionalidade: Responsável por mover a tranca para a posição de bloqueio ou desbloqueio.
+  
+  -  Funcionalidade: Responsável por mover a tranca para a posição de bloqueio ou desbloqueio.
     
   - Custo:
 
