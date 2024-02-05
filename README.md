@@ -11,8 +11,8 @@ BANCO DE DADOS:
  
 BACK-END: 
 
--Cláudia Giovana  Z. Francisco
--Davi Vinicius Correa
+- Cláudia Giovana  Z. Francisco
+- Davi Vinicius Correa
 
 Instrutor: 
 
