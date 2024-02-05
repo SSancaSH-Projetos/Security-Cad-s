@@ -139,31 +139,31 @@ Os administradores terão total acesso às informações sobre quais armários e
   
   - Funcionalidade: Fornecer energia para o sistema. Dependendo do motor escolhido, pode ser necessário um fornecimento de energia adequado.
     
-  - Custo:
+  - Custo: 
 
 - Caixa para a eletrônica:
   
   - Funcionalidade: Proteger os componentes eletrônicos do ambiente e fornecer uma estrutura para montagem.
     
-  - Custo:
+  - Custo: Escola irá disponibilizar
 
 - Materiais para a construção física da tranca (por exemplo, metal ou plástico resistente):
   
   - Funcionalidade: Compõem a estrutura física da tranca.
     
-  - Custo:
+  - Custo: Escola irá disponibilizar
 
 - Fios e conectores:
   
   - Funcionalidade: Permitem a conexão entre os componentes eletrônicos.
     
-  - Custo:
+  - Custo: Escola irá disponibilizar
 
 - Ferramentas elétricas e manuais (por exemplo, ferro de solda, alicates, chaves de fenda):
   
   - Funcionalidade: São necessárias para a montagem física e conexão elétrica dos componentes.
     
-  - Custo: 
+  - Custo: Escola irá disponibilizar
 
 - Leitor RFID (Radio-Frequency Identification):
   
