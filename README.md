@@ -38,7 +38,7 @@ Os administradores terão total acesso às informações sobre quais armários e
 
 ● Desafios de Integração: A incorporação do sistema e a aceitação pelos estudantes e administradores podem encontrar obstáculos e demandar uma comunicação eficaz. Para alcançar isso, é possível conduzir sessões de treinamento abrangentes visando assegurar a compreensão e a adoção do novo sistema.
 
-- Possíveis falhas Técnicas: Falhas técnicas podem comprometer o acesso aos armários, demandando atenção imediata.
+● Possíveis Falhas: Falhas técnicas podem comprometer o acesso aos armários, demandando atenção imediata.
 
 - Necessidade de Manutenções e Atualizações Constantes: Manutenções regulares e atualizações são essenciais para garantir a eficiência e segurança contínua do sistema.
 
