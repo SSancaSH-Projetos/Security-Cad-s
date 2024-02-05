@@ -1,6 +1,18 @@
 # Security-Cad-s
 
-# 1. Escopo
+GRUPO: Geek’s no Mercado
+PROJETO: Security Cad’s
+LÍDER DO GRUPO: Vinicius Brolezzi Gaban
+
+BANCO DE DADOS:
+- Ana Rubia de Almeida
+- Vinicius Brolezzi Gaban
+ 
+BACK-END:
+-Cláudia Giovana  Z. Francisco
+-Davi Vinicius Correa
+
+## 1. Escopo
 
 O projeto visa desenvolver um sistema abrangente para otimizar e monitorar a segurança e uso dos armários dos alunos associados à AAPM (Associação de Alunos, Ex-alunos, Pais e Mestres) em nossa organização. Este sistema será implementado através de um aplicativo, proporcionando aos alunos uma ferramenta fácil e eficiente para facilitar a vida do aluno, promovendo ao mesmo tempo uma segurança de alto nível. O objetivo principal é melhorar a segurança, confiabilidade e eficiência no processo de automatização da tranca dos armários, facilitando a vida tanto dos alunos quanto dos administradores.
 
