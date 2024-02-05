@@ -139,7 +139,7 @@ Os administradores terão total acesso às informações sobre quais armários e
   
   - Funcionalidade: Fornecer energia para o sistema. Dependendo do motor escolhido, pode ser necessário um fornecimento de energia adequado.
     
-  - Custo: 
+  - Custo: R$ 60,00
 
 - Caixa para a eletrônica:
   
