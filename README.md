@@ -108,7 +108,7 @@ Os administradores terão total acesso às informações sobre quais armários e
 - Sistemas de versionamento de código: $0
 - Servidores e Infraestrutura em Nuvem: $500
 - Ferramentas de Teste de Software: $0
-- API do chat GPT: $50
+
 
 **Equipamentos:**
 - Placa Arduino: R$ 50 - R$ 250
