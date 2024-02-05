@@ -1,8 +1,10 @@
 # Security-Cad-s
 
-GRUPO: Geek’s no Mercado
-PROJETO: Security Cad’s
-LÍDER DO GRUPO: Vinicius Brolezzi Gaban
+- GRUPO: Geek’s no Mercado
+  
+- PROJETO: Security Cad’s
+  
+- LÍDER DO GRUPO: Vinicius Brolezzi Gaban
 
 BANCO DE DADOS:
 
