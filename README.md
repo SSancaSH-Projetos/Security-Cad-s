@@ -111,16 +111,38 @@ Os administradores terão total acesso às informações sobre quais armários e
 
 
 **Equipamentos:**
-- Placa Arduino: R$ 50 - R$ 250
-- Motor de Trava: R$ 25 - R$ 100
-- Teclado ou Leitor de Cartão: R$ 30 - R$ 150
-- Sensores: R$ 25 - R$ 100 cada
-- Materiais para a Estrutura Física: Variável
-- Fonte de Alimentação: R$ 25 - R$ 100
-- Fios e Conectores: R$ 15 - R$ 50
-- Display: R$ 30 - R$ 150
-- Botões ou Outros Componentes de Interface: R$ 5 - R$ 25 cada
-- Material de Fixação: Variável
+Microcontrolador (por exemplo, Arduino):
+Funcionalidade: Serve como o cérebro do sistema, controlando a lógica de bloqueio/desbloqueio.
+Custo:
+Motor de passo ou servo motor:
+Funcionalidade: Responsável por mover a tranca para a posição de bloqueio ou desbloqueio.
+Custo:
+Driver de motor:
+Funcionalidade: Controla a alimentação e os movimentos precisos do motor.
+Custo:
+Sensor de posição (por exemplo, sensor de fim de curso):
+Funcionalidade: Detecta a posição da tranca e informa ao microcontrolador se está bloqueada ou desbloqueada.
+Custo:
+Fonte de alimentação:
+Funcionalidade: Fornecer energia para o sistema. Dependendo do motor escolhido, pode ser necessário um fornecimento de energia adequado.
+Custo:
+Botões ou teclado (opcional):
+Funcionalidade: Permitem a entrada manual de códigos ou comandos para desbloquear o armário.
+Custo:
+Caixa para a eletrônica:
+Funcionalidade: Proteger os componentes eletrônicos do ambiente e fornecer uma estrutura para montagem.
+Custo:
+Materiais para a construção física da tranca (por exemplo, metal ou plástico resistente):
+Funcionalidade: Compõem a estrutura física da tranca.
+Fios e conectores:
+Funcionalidade: Permitem a conexão entre os componentes eletrônicos.
+Custo:
+Ferramentas elétricas e manuais (por exemplo, ferro de solda, alicates, chaves de fenda):
+Funcionalidade: São necessárias para a montagem física e conexão elétrica dos componentes.
+Custo:
+Leitor RFID (Radio-Frequency Identification):
+Funcionalidade: Detecta e lê a informação do cartão RFID.
+Custo: 
 
 **Total Geral:**
 - Pessoal: $0
