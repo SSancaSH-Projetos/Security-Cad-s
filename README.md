@@ -40,7 +40,7 @@ Os administradores terão total acesso às informações sobre quais armários e
 
 ● Possíveis Falhas: A presença de falhas técnicas no aplicativo ou nos dispositivos móveis dos usuários pode prejudicar a capacidade de acesso aos armários, resultando em inconveniências e interrupções no uso.
 
-● Necessidade de Manutenções e Atualizações Constantes: A realização de manutenções periódicas e atualizações é fundamental para assegurar a eficiência e a segurança contínuas do sistema.
+● Necessidade de Manutenções e Atualizações Constantes: A realização de manutenções periódicas e atualizações é fundamental para assegurar a eficiência e a segurança contínua do sistema.
 
 ## 4. Cronograma
 
