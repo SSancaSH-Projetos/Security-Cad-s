@@ -5,12 +5,18 @@ PROJETO: Security Cad’s
 LÍDER DO GRUPO: Vinicius Brolezzi Gaban
 
 BANCO DE DADOS:
+
 - Ana Rubia de Almeida
 - Vinicius Brolezzi Gaban
  
 BACK-END: 
+
 -Cláudia Giovana  Z. Francisco
 -Davi Vinicius Correa
+
+Instrutor: 
+
+- Roniester
 
 ## 1. Escopo
 
