@@ -197,3 +197,5 @@ Os administradores terão total acesso às informações sobre quais armários e
 
 - **Taxa de Adoção do Aplicativo:**
   - Objetivo: Alcançar uma taxa de adoção de 40%
+  -Ter feedbacke's de todos os usuários do sistema
+  -Ter acessos aos relatos de atividades contínuas do sistema
