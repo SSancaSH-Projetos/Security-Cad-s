@@ -38,9 +38,9 @@ Os administradores terão total acesso às informações sobre quais armários e
 
 ● Desafios de Integração: A incorporação do sistema e a aceitação pelos estudantes e administradores podem encontrar obstáculos e demandar uma comunicação eficaz. Para alcançar isso, é possível conduzir sessões de treinamento abrangentes visando assegurar a compreensão e a adoção do novo sistema.
 
-● Possíveis Falhas: Falhas técnicas podem comprometer o acesso aos armários, demandando atenção imediata.
+● Possíveis Falhas: A presença de falhas técnicas no aplicativo ou nos dispositivos móveis dos usuários pode prejudicar a capacidade de acesso aos armários, resultando em inconveniências e interrupções no uso.
 
-● Necessidade de Manutenções e Atualizações Constantes: Manutenções regulares e atualizações são essenciais para garantir a eficiência e segurança contínua do sistema.
+● Necessidade de Manutenções e Atualizações Constantes: A realização de manutenções periódicas e atualizações é fundamental para assegurar a eficiência e a segurança contínuas do sistema.
 
 ## 4. Cronograma
 
