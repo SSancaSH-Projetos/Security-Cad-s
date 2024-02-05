@@ -36,7 +36,7 @@ Os administradores terão total acesso às informações sobre quais armários e
 
 ## 3. Análise de Riscos
 
-- Desafios de Integração e Adoção: Pode enfrentar resistência, sendo necessário treinamento abrangente para garantir compreensão e aceitação.
+● Desafios de Integração: A incorporação do sistema e a aceitação pelos estudantes e administradores podem encontrar obstáculos e demandar uma comunicação eficaz. Para alcançar isso, é possível conduzir sessões de treinamento abrangentes visando assegurar a compreensão e a adoção do novo sistema.
 
 - Possíveis falhas Técnicas: Falhas técnicas podem comprometer o acesso aos armários, demandando atenção imediata.
 
