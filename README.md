@@ -1,9 +1,8 @@
-# ![Logo](https://github.com/SSancaSH-Projetos/Security-Cad-s/blob/main/SECURITY%20cAD%E2%80%99S.png)
+![Logo](https://github.com/SSancaSH-Projetos/Security-Cad-s/blob/main/SECURITY%20cAD%E2%80%99S.png)
 
- Sistema de travas digitais para o monitoramento dos armários dos alunos associados à AAPM.
+# Sistema de travas digitais para o monitoramento dos armários dos alunos associados à AAPM.
 
-
-# - GRUPO: Geek’s no Mercado
+ - GRUPO: Geek’s no Mercado
   
 - PROJETO: Security Cad’s
   
