@@ -1,0 +1,60 @@
+CREATE DATABASE banco_armarios;
+
+USE banco_armarios;
+
+CREATE TABLE aluno(
+id_aluno BIGINT AUTO_INCREMENT PRIMARY KEY,
+nome VARCHAR (50) NOT NULL,
+matricula VARCHAR(10) NOT NULL,
+curso VARCHAR(50) NOT NULL
+);
+
+CREATE TABLE cartoesRFID(
+id_cartao BIGINT AUTO_INCREMENT,
+numero_cartao INT NOT NULL,
+id_aluno BIGINT,
+CONSTRAINT pk_cartoesRFID PRIMARY KEY (id_cartao),
+CONSTRAINT fk_aluno_cartoesRFID FOREIGN KEY (id_aluno) REFERENCES aluno(id_aluno)
+);
+
+CREATE TABLE armarios(
+id_armarios BIGINT AUTO_INCREMENT,
+numero_armario INT NOT NULL,
+status_armario BOOL DEFAULT 1,
+CONSTRAINT pk_armarios PRIMARY KEY (id_armarios)
+);
+
+CREATE TABLE acessos(
+id_acesso BIGINT AUTO_INCREMENT PRIMARY KEY,
+id_aluno BIGINT,
+id_cartao BIGINT,
+data_hora_acesso DATE NOT NULL,
+CONSTRAINT fk_acessos_aluno FOREIGN KEY (id_aluno) REFERENCES aluno(id_aluno),
+CONSTRAINT fk_acessos_cartoesRFID FOREIGN KEY (id_cartao) REFERENCES cartoesRFID (id_cartao)
+);
+
+
+-- Inserindo dados na tabela aluno
+INSERT INTO aluno (nome, matricula, curso) VALUES
+('João Silva', '20210001', 'Engenharia Civil'),
+('Maria Oliveira', '20210002', 'Ciência da Computação'),
+('Pedro Santos', '20210003', 'Administração');
+
+-- Inserindo dados na tabela cartoesRFID
+INSERT INTO cartoesRFID (numero_cartao, id_aluno) VALUES
+(123456, 1),
+(789012, 2),
+(345678, 3);
+
+-- Inserindo dados na tabela armarios
+INSERT INTO armarios (numero_armario) VALUES
+(101),
+(102),
+(103);
+
+-- Inserindo dados na tabela acessos
+INSERT INTO acessos (id_aluno, id_cartao, data_hora_acesso) VALUES
+(1, 1, '2024-02-07 08:30:00'),
+(2, 2, '2024-02-07 09:45:00'),
+(3, 3, '2024-02-07 11:15:00');
+
