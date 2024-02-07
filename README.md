@@ -1,4 +1,4 @@
-
+![Logo](https://github.com/SSancaSH-Projetos/Security-Cad-s/blob/main/SECURITY%20cAD%E2%80%99S.png)
 
 # Sistema de travas digitais para o monitoramento dos armários dos alunos associados à AAPM.
 
