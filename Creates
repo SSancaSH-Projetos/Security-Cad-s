@@ -28,7 +28,7 @@ CREATE TABLE acessos(
 id_acesso BIGINT AUTO_INCREMENT PRIMARY KEY,
 id_aluno BIGINT,
 id_cartao BIGINT,
-data_hora_acesso DATE NOT NULL,
+data_hora_acesso TIMESTAMP NOT NULL,
 CONSTRAINT fk_acessos_aluno FOREIGN KEY (id_aluno) REFERENCES aluno(id_aluno),
 CONSTRAINT fk_acessos_cartoesRFID FOREIGN KEY (id_cartao) REFERENCES cartoesRFID (id_cartao)
 );
