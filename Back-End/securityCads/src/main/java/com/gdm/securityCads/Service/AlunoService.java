@@ -32,6 +32,7 @@ public class AlunoService {
 		armarioParaSalvar.setNumero(todasInformacoesAlunosDTO.getNumeroArmario());
 
 		cartaoRFIDParaSalvar.setNumeroCartao(todasInformacoesAlunosDTO.getNumeroCartaoRFID());
+		//cartaoRFIDParaSalvar.setAluno();
 
 		alunoParaSalvar.setArmario(armarioParaSalvar);
 		alunoParaSalvar.setCartaoRFID(cartaoRFIDParaSalvar);
