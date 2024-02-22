@@ -2,15 +2,8 @@ package com.gdm.securityCads.model;
 
 import java.util.Objects;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
-import lombok.Data;
+import jakarta.persistence.*;
 
-@Data
 @Entity
 @Table(name = "aluno")
 public class Aluno {
@@ -18,8 +11,7 @@ public class Aluno {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id_aluno")
-
-	private Long id_aluno;
+	private Long idAluno;
 
 	@Column(name = "nome", nullable = false, length = 50)
 	private String nome;
@@ -30,27 +22,110 @@ public class Aluno {
 	@Column(name = "curso", nullable = false, length = 50)
 	private String curso;
 
-	@Override
-	public String toString() {
-		return "Aluno [id_aluno=" + id_aluno + ", nome=" + nome + ", matricula=" + matricula + ", curso=" + curso + "]";
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "id_armario")
+	private Armario armario;
+
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "id_cartaoRFID")
+	private CartaoRFID cartaoRFID;
+
+	// Construtores
+
+	public Aluno() {
+		// Construtor vazio necessário para frameworks como Spring
 	}
+
+	public Aluno(String nome, String matricula, String curso, Armario armario, CartaoRFID cartaoRFID) {
+		this.nome = nome;
+		this.matricula = matricula;
+		this.curso = curso;
+		this.armario = armario;
+		this.cartaoRFID = cartaoRFID;
+	}
+
+	// Métodos getter e setter
+
+	public Long getIdAluno() {
+		return idAluno;
+	}
+
+	public void setIdAluno(Long idAluno) {
+		this.idAluno = idAluno;
+	}
+
+	public String getNome() {
+		return nome;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+	public String getMatricula() {
+		return matricula;
+	}
+
+	public void setMatricula(String matricula) {
+		this.matricula = matricula;
+	}
+
+	public String getCurso() {
+		return curso;
+	}
+
+	public void setCurso(String curso) {
+		this.curso = curso;
+	}
+
+	public Armario getArmario() {
+		return armario;
+	}
+
+	public void setArmario(Armario armario) {
+		this.armario = armario;
+	}
+
+	public CartaoRFID getCartaoRFID() {
+		return cartaoRFID;
+	}
+
+	public void setCartaoRFID(CartaoRFID cartaoRFID) {
+		this.cartaoRFID = cartaoRFID;
+	}
+
+	// Métodos equals e hashCode
 
 	@Override
 	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Aluno other = (Aluno) obj;
-		return Objects.equals(curso, other.curso) && Objects.equals(id_aluno, other.id_aluno)
-				&& Objects.equals(matricula, other.matricula) && Objects.equals(nome, other.nome);
+		if (this == obj) return true;
+		if (obj == null || getClass() != obj.getClass()) return false;
+		Aluno aluno = (Aluno) obj;
+		return Objects.equals(idAluno, aluno.idAluno) &&
+				Objects.equals(nome, aluno.nome) &&
+				Objects.equals(matricula, aluno.matricula) &&
+				Objects.equals(curso, aluno.curso) &&
+				Objects.equals(armario, aluno.armario) &&
+				Objects.equals(cartaoRFID, aluno.cartaoRFID);
 	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(curso, id_aluno, matricula, nome);
+		return Objects.hash(idAluno, nome, matricula, curso, armario, cartaoRFID);
 	}
 
+	// Método toString
+
+	@Override
+	public String toString() {
+		return "Aluno{" +
+				"idAluno=" + idAluno +
+				", nome='" + nome + '\'' +
+				", matricula='" + matricula + '\'' +
+				", curso='" + curso + '\'' +
+				", armario=" + armario +
+				", cartaoRFID=" + cartaoRFID +
+				'}';
+	}
 }
+

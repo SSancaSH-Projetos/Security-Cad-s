@@ -6,8 +6,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class SecurityCadsApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(SecurityCadsApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(SecurityCadsApplication.class, args);
+    }
 
 }
