@@ -4,7 +4,7 @@
 
  - GRUPO: Geek’s do Mercado
   
-- PROJETO: Security Cad’s
+- PROJETO: Secure Lokers
   
 - LÍDER DO GRUPO: Vinicius Brolezzi Gaban
 
