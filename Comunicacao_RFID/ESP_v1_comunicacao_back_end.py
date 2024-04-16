@@ -27,8 +27,8 @@ def connect_wifi(ssid, password):
             pass
     print('Conectado à rede Wi-Fi:', ssid)
 
-# Função para ler o cartão RFID e fazer a solicitação HTTP
-def read_and_request(url):
+# Função para ler o cartão RFID, armazenar o UID e fazer outra solicitação HTTP
+def read_and_store_request(url_read, url_store):
     try:
         while True:
             # Inicializa o leitor RFID
@@ -43,21 +43,41 @@ def read_and_request(url):
                     print("UID:", uid)
                     
                     # Faz a solicitação HTTP com o UID e o número do armário
-                    request_url = url.format(uid)
+                    request_url = url_read.format(uid)
+                    print(request_url)
                     response = urequests.get(request_url)
                     print("Response:", response.text)
                     response.close()
+
+                    # Chama a função para enviar o UID para o backend
+                    send_rfid_to_backend(uid)
                     
                     sleep_ms(100)
     except KeyboardInterrupt:
         print("Bye")
 
-# Endereço base da solicitação HTTP
-base_url = "http://10.110.12.35:8080/acesso/consultar/1/{}"
+# Função para enviar o UID para o backend
+def send_rfid_to_backend(rfid):
+    try:
+        # URL do endpoint para armazenar o UID no backend
+        store_url = "http://10.187.244.161:8080/acesso/armazenar"
+        
+        # Formata o payload da requisição
+        payload = {"rfid": rfid}
+        
+        # Faz a solicitação HTTP POST para enviar o UID para o backend
+        response = urequests.post(store_url, json=payload)
+        print("Store Response:", response.text)
+        response.close()
+    except Exception as e:
+        print("Error sending RFID to backend:", e)
+
+# Endereço base para a solicitação de leitura do cartão RFID
+read_base_url = r"http://10.187.244.161:8080/acesso/consultar/1/{}"
 
 # Conecta à rede Wi-Fi
 connect_wifi(WIFI_SSID, WIFI_PASSWORD)
 
 # Executa a função de leitura e solicitação continuamente
 while True:
-    read_and_request(base_url)
+    read_and_store_request(read_base_url, "")
