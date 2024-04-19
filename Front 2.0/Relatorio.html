@@ -1,0 +1,252 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+  <link rel="icon" href="img/LogoDaEquipe.png" type="image/x-icon" />
+  <link rel="stylesheet" href="css/Relatorio.css" />
+  <title>Relatório</title>
+</head>
+
+<body>
+  <!-- Header -->
+  <div id="header">
+    <h1>Secure Lockers</h1>
+  </div>
+
+  <!-- Menu -->
+  <nav id="menu">
+    <a href="PaginaInicial.html"><i class="fas fa-home"></i> Página Inicial</a>
+    <a href="Relatorio.html"><i class="fas fa-file-alt"></i> Relatório</a>
+    <div class="dropdown">
+      <a class="dropdown-btn"><i class="fas fa-user-plus"></i> Cadastro</a>
+      <div class="dropdown-content">
+        <a href="CadastroAluno.html">Aluno</a>
+        <a href="CadastroCurso.html">Curso</a>
+      </div>
+    </div>
+    <a href="Sobre.html"><i class="fas fa-question-circle"></i> Sobre</a>
+  </nav>
+
+  <div class="conteudo-container">
+    <!-- Filtros à Esquerda -->
+    <div id="filtros">
+      <div class="filtro-item">
+        <label for="filtroNomeCurso">Filtrar por Nome do Curso:</label>
+        <input type="text" id="filtroNomeCurso">
+        <button onclick="aplicarFiltroNomeCurso()">Aplicar Filtro</button>
+       
+      </div>
+
+
+      <div class="filtro-item">
+        <label for="filtroNome">Filtrar por Nome:</label>
+        <input type="text" id="filtroNome">
+        <button onclick="aplicarFiltroNome()">Aplicar Filtro</button>
+    </div>
+
+      <div class="filtro-item">
+        <label for="filtroNumMatricula">Filtrar por Número de Matrícula:</label>
+        <input type="text" id="filtroNumMatricula">
+        <button onclick="aplicarFiltroNumMatricula()">Aplicar Filtro</button>
+      </div>
+  
+
+      <div class="filtro-item">
+        <label for="filtroHorarioAcesso">Filtrar por Horário de Acesso:</label>
+        <select id="filtroHorarioAcesso">
+          <option value="">Selecione...</option>
+          <option value="horarioManha">Manhã</option>
+          <option value="horarioTarde">Tarde</option>
+          <option value="horarioNoite">Noite</option>
+          <!-- Adicione mais opções conforme necessário -->
+        </select>
+        <button onclick="aplicarFiltroHorarioAcesso()">Aplicar Filtro</button>
+     
+      </div>
+
+      <div class="filtro-item">
+        <label for="filtroNumCartaoRFID">Filtrar por Número do Cartão RFID:</label>
+        <input type="text" id="filtroNumCartaoRFID">
+        <button onclick="aplicarFiltroNumCartaoRFID()">Aplicar Filtro</button>
+       
+      </div>
+    </div>
+
+    
+
+    <!-- Espaço do Relatório à Direita -->  
+    <div id="dadosRelatorioDemo" class="ml-4">
+      <h2>Relatório</h2>
+      <table id="tabelaRelatorio" class="table table-bordered">
+        <thead>
+          <tr>
+            <th>Nome do Aluno</th>
+            <th>Número do Armário</th>
+            <th>Curso</th>
+            <th>Número de Matrícula</th>
+            <th>Número do Cartão</th>
+            <th>Ações</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Linhas da tabela serão preenchidas dinamicamente -->
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <script src="js/Relatorio.js"></script>
+  <script>
+    // Adicione aqui os scripts para aplicar os filtros e atualizar a tabela
+    // Lógica para aplicar o filtro por nome do curso
+    function aplicarFiltroNomeCurso() {
+      var input, filter, table, tbody, tr, td, i, txtValue;
+      input = document.getElementById("filtroNomeCurso");
+      filter = input.value.toUpperCase();
+      table = document.getElementById("tabelaRelatorio");
+      tbody = table.getElementsByTagName("tbody")[0];
+      tr = tbody.getElementsByTagName("tr");
+      for (i = 0; i < tr.length; i++) {
+        td = tr[i].getElementsByTagName("td")[2]; // 3ª coluna (0-indexed) contém o nome do curso
+        if (td) {
+          txtValue = td.textContent || td.innerText;
+          if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            tr[i].style.display = "";
+          } else {
+            tr[i].style.display = "none";
+          }
+        }
+      }
+   
+    }
+
+    // Lógica para aplicar o filtro por número de matrícula
+    function aplicarFiltroNumMatricula() {
+      var inputNumMatricula = document.getElementById('filtroNumMatricula').value.toUpperCase();
+      var tabela = document.getElementById('tabelaRelatorio');
+      var linhas = tabela.getElementsByTagName('tr');
+
+      for (var i = 0; i < linhas.length; i++) {
+        var colunaNumMatricula = linhas[i].getElementsByTagName('td')[3]; // Índice da coluna do número de matrícula
+
+        if (colunaNumMatricula) {
+          var textoNumMatricula = colunaNumMatricula.textContent || colunaNumMatricula.innerText;
+
+          if (textoNumMatricula.toUpperCase().indexOf(inputNumMatricula) > -1) {
+            linhas[i].style.display = '';
+          } else {
+            linhas[i].style.display = 'none';
+          }
+        }
+      }
+    }
+
+    // Lógica para aplicar o filtro por horário de acesso
+    function aplicarFiltroHorarioAcesso() {
+      var filtroHorarioAcesso = document.getElementById('filtroHorarioAcesso').value;
+      var tabela = document.getElementById('tabelaRelatorio');
+      var linhas = tabela.getElementsByTagName('tbody')[0].getElementsByTagName('tr');
+
+      // Itera sobre as linhas da tabela
+      for (var i = 0; i < linhas.length; i++) {
+        var linha = linhas[i];
+        var colunaHorarioAcesso = linha.getElementsByTagName('td')[2]; // Considerando que a coluna do horário de acesso é a terceira
+
+        // Verifica se o horário de acesso da linha corresponde ao filtro selecionado
+        if (filtroHorarioAcesso === "" || colunaHorarioAcesso.textContent.trim() === filtroHorarioAcesso) {
+          linha.style.display = ""; // Mostra a linha se corresponder ao filtro
+        } else {
+          linha.style.display = "none"; // Oculta a linha se não corresponder ao filtro
+        }
+      }
+    }
+
+    function aplicarFiltroNumCartaoRFID() {
+      var inputNumCartaoRFID = document.getElementById('filtroNumCartaoRFID').value.trim().toLowerCase();
+      var tabela = document.getElementById('tabelaRelatorio');
+      var linhas = tabela.getElementsByTagName('tbody')[0].getElementsByTagName('tr');
+
+      for (var i = 0; i < linhas.length; i++) {
+        var colunaNumCartaoRFID = linhas[i].getElementsByTagName('td')[4].innerText.trim().toLowerCase();
+
+        // Se o número do cartão RFID da linha corresponder ao filtro, mostra a linha; caso contrário, oculta-a
+        if (colunaNumCartaoRFID.includes(inputNumCartaoRFID)) {
+          linhas[i].style.display = '';
+        } else {
+          linhas[i].style.display = 'none';
+        }
+      }
+    }
+
+    function aplicarFiltroNome() {
+      var filtroNome = document.getElementById('filtroNome').value.toLowerCase();
+      var tabela = document.getElementById('tabelaRelatorio');
+      var linhas = tabela.getElementsByTagName('tbody')[0].getElementsByTagName('tr');
+
+      // Itera sobre as linhas da tabela
+      for (var i = 0; i < linhas.length; i++) {
+        var linha = linhas[i];
+        var colunaNome = linha.getElementsByTagName('td')[0]; // Considerando que a coluna do nome do aluno é a primeira
+
+        // Verifica se o nome da linha corresponde ao filtro digitado
+        if (filtroNome === "" || colunaNome.textContent.toLowerCase().includes(filtroNome)) {
+          linha.style.display = ""; // Mostra a linha se corresponder ao filtro
+        } else {
+          linha.style.display = "none"; // Oculta a linha se não corresponder ao filtro
+        }
+      }
+    }
+
+
+     // Função para editar informações de um aluno
+     function editarInformacoes() {
+      var nomeInput = document.getElementById('nomeInput');
+      var novoNome = prompt('Digite o novo nome do aluno:');
+  
+         if (novoNome !== null) {
+          nomeInput.value = novoNome;
+          alert('Nome do aluno atualizado com sucesso!');
+    }
+
+    // Função para excluir informações de um aluno
+    function excluirInformacoes() {
+      var confirmacao = confirm('Tem certeza de que deseja excluir as informações deste aluno?');
+  
+  if (confirmacao) {
+    var tabela = document.getElementById('tabelaRelatorio');
+    var linhas = tabela.getElementsByTagName('tbody')[0].getElementsByTagName('tr');
+    var linhasVisiveis = [];
+
+    // Encontra as linhas visíveis na tabela
+    for (var i = 0; i < linhas.length; i++) {
+      if (linhas[i].style.display !== 'none') {
+        linhasVisiveis.push(linhas[i]);
+      }
+    }
+
+    if (linhasVisiveis.length === 0) {
+      alert('Nenhum aluno selecionado para exclusão.');
+      return;
+    }
+
+    // Seleciona a primeira linha visível para exclusão
+    var primeiraLinha = linhasVisiveis[0];
+
+    // Remove a linha selecionada
+    tabela.deleteRow(primeiraLinha.rowIndex);
+
+    alert('Informações do aluno excluídas com sucesso!');
+  }
+}
+    }
+</script>
+
+
+    
+
+
