@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="img/LogoDaEquipe.png" type="image/png">
+  <title>Geek`s do Mercado</title>
+  <style>
+    body,
+    html {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      height: 100%;
+      font-size: 16px;
+      line-height: 0.8cm;
+      color: #666;
+      background-color: #000;
+      background-attachment: fixed;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+
+    .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px;
+      box-shadow: 0 40px 90px #000000;
+      position: relative;
+    }
+
+    .text-container {
+      display: flex;
+      align-items: center;
+    }
+
+    .text-container h1 {
+      color: #ffffff;
+      font-size: 30px;
+      font-weight: bold;
+    }
+
+    .image-container {
+      position: fixed;
+      bottom: 0;
+      right: 0;
+      margin: 0;
+      z-index: 9999;
+      pointer-events: none;
+      /* Impede que a logo receba eventos do mouse */
+    }
+
+    .image-container img {
+      width: 150px;
+      /* Ajuste o tamanho conforme necessário */
+      height: auto;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .terceiraImagem,
+    .quartaImagem,
+    .quintaImagem,
+    .sextaImagem {
+      position: relative;
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+    }
+
+    .terceiraImagem::before,
+    .quartaImagem::before,
+    .sextaImagem::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background-color: rgba(0, 0, 0, 0.7);
+      /* Altere a opacidade conforme necessário */
+    }
+
+    .terceiraImagem {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      background-image: url("img/expanded.jpg");
+      background-position: center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+    }
+
+    .terceiraImagem .texto {
+      position: relative;
+      text-align: center;
+      color: #000;
+      font-size: 30px;
+      letter-spacing: 8px;
+      text-transform: uppercase;
+      opacity: 0.7;
+      font-weight: bold;
+      z-index: 1;
+    }
+
+    @media (max-width: 768px) {
+      .terceiraImagem {
+        min-height: 60vh;
+      }
+    }
+
+    .quartaImagem {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      background-image: url("img/GitHubIA.jpg");
+      background-position: center;
+      background-color: white;
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+    }
+
+    .quartaImagem .texto {
+      position: relative;
+      text-align: center;
+      color: #000;
+      font-size: 30px;
+      letter-spacing: 8px;
+      text-transform: uppercase;
+      opacity: 0.7;
+      font-weight: bold;
+      z-index: 1;
+    }
+
+    @media (max-width: 768px) {
+      .quartaImagem {
+        min-height: 60vh;
+      }
+    }
+
+    .quintaImagem {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      background-image: url("img/LogoSecureLockers.png");
+      background-position: center;
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+    }
+
+    .quintaImagem .texto {
+      position: relative;
+      text-align: center;
+      color: #000;
+      font-size: 30px;
+      letter-spacing: 8px;
+      text-transform: uppercase;
+      opacity: 0.7;
+      font-weight: bold;
+      z-index: 1;
+    }
+
+    @media (max-width: 768px) {
+      .quintaImagem {
+        min-height: 60vh;
+      }
+    }
+
+    .sextaImagem {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      background-image: url("img/ProdutoDoProjeto.jpeg");
+      background-position: center;
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+    }
+
+    .sextaImagem .texto {
+      position: relative;
+      text-align: center;
+      color: #000;
+      font-size: 30px;
+      letter-spacing: 8px;
+      text-transform: uppercase;
+      opacity: 0.7;
+      font-weight: bold;
+      z-index: 1;
+    }
+
+    @media (max-width: 768px) {
+      .sextaImagem {
+        min-height: 60vh;
+      }
+    }
+
+    .secao {
+      text-align: center;
+      padding: 20px 60px;
+      background-color: #cc00ff;
+      color: rgb(0, 0, 0);
+      font-weight: bold;
+      font-size: 30px;
+      padding: 10px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      line-height: 1.5;
+    }
+
+    .secaoClara {
+      background-color: #cc00ff;
+      color: rgb(0, 0, 0);
+      font-weight: bold;
+      font-size: 40px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      line-height: 1.8;
+      height: 105vh;
+      box-sizing: border-box;
+      width: 100%;
+    }
+
+    .secaoClara>div {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      margin: 0 auto;
+      height: 100%;
+    }
+
+    .secaoClara p {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    @media (max-width: 768px) {
+      .secaoClara>div {
+        flex-direction: column;
+      }
+
+      .secaoClara img {
+        max-width: 100%;
+        /* Faz com que a imagem ocupe 100% da largura em telas menores */
+      }
+    }
+
+    .secaoEscura {
+      background-color: #000000d9;
+      color: #ffffff;
+      font-weight: bold;
+      font-size: 30px;
+      line-height: 1.8;
+      width: 100%;
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 100vh;
+      box-sizing: border-box;
+    }
+
+    .secaoEscura img {
+      max-width: 50%;
+      height: auto;
+      margin-right: 20px;
+    }
+
+    .secaoEscura p {
+      max-width: 50%;
+      text-align: left;
+      margin: 0;
+      line-height: 1.5;
+      /* Ajuste o espaçamento entre as linhas */
+    }
+
+    .secaoEscura p span {
+      display: block;
+      margin-top: 10px;
+      /* Adicione margem entre as hashtags */
+    }
+
+    @media (max-width: 768px) {
+      .secaoEscura {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .secaoEscura img,
+      .secaoEscura p {
+        max-width: 100%;
+      }
+    }
+
+    .texto {
+      position: absolute;
+      top: 50%;
+      width: 100%;
+      text-align: center;
+      color: #000;
+      font-size: 30px;
+      letter-spacing: 8px;
+      text-transform: uppercase;
+      opacity: 0.7;
+      font-weight: bold;
+    }
+
+    .rotulo {
+      background-color: #ffffff;
+      color: #000000;
+      padding: 20px;
+      font-weight: bold;
+      font-size: 30px;
+    }
+
+    @media (max-width: 560px) {
+
+      .terceiraImagem,
+      .quartaImagem,
+      .quintaImagem,
+      .sextaImagem {
+        background-attachment: scroll;
+      }
+    }
+
+
+    .card-container {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 20px;
+    }
+
+    .card {
+      position: relative;
+      width: 23%;
+      background: #cc00ff;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+      overflow: hidden;
+      margin-bottom: 100px;
+    }
+
+    .card-image img {
+      width: 100%;
+      height: auto;
+      border-bottom: 1px solid #eee;
+    }
+
+    .card-content {
+      padding: 5px;
+    }
+
+    .card-content h2 {
+      margin-top: 0;
+      font-size: 18px;
+      text-align: center;
+      color: white;
+    }
+
+    .icon-container {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 10px;
+      background: #9900cc;
+      /* Cor de fundo opcional para a área dos ícones */
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .icon-container img {
+      width: 40px;
+      /* Ajuste conforme necessário */
+      height: auto;
+      bottom: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+  </div>
+  <div class="image-container">
+    <img src="img/LogoDaEquipe.png" alt="Logo da equipe" />
+  </div>
+  </div>
+
+  <div class="quintaImagem">
+    <!-- Conteúdo da quinta imagem -->
+    <div class="texto">
+      <!--<span class="rotulo transicao"> SECURITY CADS </span>-->
+    </div>
+  </div>
+
+  <section class="secao secaoClara" style="padding: 0px;">
+    <!-- Conteúdo da quinta seção -->
+    <div style="display: flex; align-items: center;">
+
+      <!-- Logo da equipe -->
+      <div style="width: 25%;">
+        <img src="img/CartaoSecureLockers.png" alt="Logo da equipe" style="width: 100%;" />
+      </div>
+
+      <!-- Conteúdo dos cards -->
+      <div style="width: 75%; padding-left: 20px;">
+
+        <!-- Cards -->
+        <div style="display: flex; justify-content: space-between;">
+
+          <!-- Card 1 -->
+          <div style="width: 30%;">
+            <img src="img/security.png" width="100%" alt="security" />
+            <span style="display: block; text-align: center; margin-top: 10px; font-size: 25px;">Segurança</span>
+          </div>
+
+          <!-- Card 2 -->
+          <div style="width: 30%;">
+            <img src="img/tecnologia.png" width="100%" alt="tecnologia" />
+            <span style="display: block; text-align: center; margin-top: 10px;font-size: 25px">Tecnologia</span>
+          </div>
+
+          <!-- Card 3 -->
+          <div style="width: 30%;">
+            <img src="img/conectividade.png" width="100%" alt="conectividade" />
+            <span style="display: block; text-align: center; margin-top: 10px;font-size: 25px">Conectividade</span>
+          </div>
+
+        </div>
+
+        <!-- Texto principal -->
+        <p style="margin-top: 20px;">
+          Estamos transformando a maneira como garantimos a proteção de pertences, combinando inovação tecnológica com a
+          praticidade do dia a dia. 👩‍💻🔒 <br>
+          <span style="font-size: 23px; font-weight: bold; color: white;">#SecureLockers #Inovação
+            #TravasDigitais</span>
+        </p>
+
+      </div>
+    </div>
+  </section>
+
+  <div class="sextaImagem">
+    <div class="texto">
+      <span class="rotulo transicao"> Nosso Produto </span>
+    </div>
+  </div>
+  <section class="secao">
+    <img style="border: 1px solid white; width: 100%; height: 105vh;"
+      src="img/Figma do projeto logo atualizada parte 2.png" alt="" />
+  </section>
+  <div class="terceiraImagem">
+    <div class="texto">
+      <span class="rotulo transicao"> SOBRE </span>
+    </div>
+  </div>
+  <section class="secao">
+    <p>
+      A Geek's do Mercado é uma equipe altamente especializada em inovação e
+      segurança. Nosso compromisso é impulsionar o desenvolvimento tecnológico
+      em instituições, oferecendo soluções avançadas.
+    </p>
+
+    <div class="card-container">
+      <div class="card">
+        <div class="card-image">
+          <img src="img/Gaban.jpg" alt="Foto 1" />
+        </div>
+        <div class="card-content">
+          <h2>Full Stack</h2>
+          <div class="icon-container">
+            <img src="img/icon_instagram.png" alt="Ícone 1" />
+            <img src="img/icone_gmail.webp" alt="Ícone 2" />
+            <img src="img/icone_discord.png" alt="Ícone 3" />
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-image">
+          <img src="img/AnaRubia.jpeg" alt="Foto 2" />
+        </div>
+        <div class="card-content">
+          <h2>Banco de Dados</h2>
+          <div class="icon-container">
+            <img src="img/icon_instagram.png" alt="Ícone 1" />
+            <img src="img/icone_gmail.webp" alt="Ícone 2" />
+            <img src="img/icone_discord.png" alt="Ícone 3" />
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-image">
+          <img src="img/Claudia.jpeg" alt="Foto 3" />
+        </div>
+        <div class="card-content">
+          <h2>Back-End</h2>
+          <div class="icon-container">
+            <img src="img/icon_instagram.png" alt="Ícone 1" />
+            <img src="img/icone_gmail.webp" alt="Ícone 2" />
+            <img src="img/icone_discord.png" alt="Ícone 3" />
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-image">
+          <img src="img/Davi.png" alt="Foto 4" />
+        </div>
+        <div class="card-content">
+          <h2>Back-End</h2>
+          <div class="icon-container">
+            <img src="img/icon_instagram.png" alt="Ícone 1" />
+            <img src="img/icone_gmail.webp" alt="Ícone 2" />
+            <img src="img/icone_discord.png" alt="Ícone 3" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div class="quartaImagem">
+    <div class="texto">
+      <span class="rotulo transicao"> Acompanhe nosso Trabalho </span>
+    </div>
+  </div>
+  <section style="padding: 10px;" class="secao secaoEscura">
+    <div style="display: flex; justify-content: space-between; align-items: center;">
+
+      <!-- QR CODE à direita -->
+      <div style="width: 50%; text-align: right;">
+        <img src="img/QRCODE.png" alt="" style="max-width: 100%;" />
+      </div>
+
+      <!-- Texto à esquerda -->
+      <div style="width: 40%; text-align: justify; line-height: 1.5;">
+        <p>
+          🚀 Explorando o repositório Geek's do Mercado no GitHub! <br>
+           <br> #GeeksDoMercado #Inovação #SegurançaDigital
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+
+  </section>
+
+  </div>
+  <script>
+    window.onscroll = function () {
+      let scroll = window.scrollY;
+      let parallax = document.querySelector(".parallax");
+      parallax.style.backgroundPositionY = scroll / 2 + "px";
+    };
+  </script>
+</body>
+
+</html>
