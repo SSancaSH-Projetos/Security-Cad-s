@@ -13,13 +13,10 @@
   <title>Relatório</title>
 </head>
 
-<body>
+<body background="img/imagem 7.jpg">
   <!-- Header -->
   <div id="header">
     <img id="logo" src="img/LogoDaEquipe.png" alt="Logo">
-    <div id="texto-centralizado">
-      <h1>Secure Lockers</h1>
-    </div>
   </div>
 
   <!-- Menu -->
@@ -30,98 +27,86 @@
       <a class="dropdown-btn"><i class="fas fa-user-plus"></i> Cadastro</a>
       <div class="dropdown-content">
         <a href="CadastroAluno.html">Aluno</a>
-        <a href="CadastroCurso.html">Curso</a>
       </div>
     </div>
     <a href="Sobre.html"><i class="fas fa-question-circle"></i> Sobre</a>
   </nav>
 
-  <div class="conteudo-container">
-    <!-- Filtros à Esquerda -->
-    <div id="filtros">
-      <div class="filtro-item">
-        <label for="filtroNomeCurso">Filtrar por Nome do Curso:</label>
-        <input type="text" id="filtroNomeCurso">
-        <button onclick="aplicarFiltroNomeCurso()">Aplicar Filtro</button>
+  <div class="container my-5">
+    <div class="row">
+      <div class="col-lg-4 mb-4">
+        <div class="card shadow-sm">
+          <div class="card-body" id="filtros">
+            <h5 class="card-title">Filtros</h5>
+            <div class="form-group">
+              <label for="filtroNomeCurso">Filtrar por Nome do Curso:</label>
+              <input type="text" id="filtroNomeCurso" class="form-control">
+              <button class="btn btn-primary btn-block mt-2" onclick="aplicarFiltroNomeCurso()">Aplicar Filtro</button>
+            </div>
+            <div class="form-group">
+              <label for="filtroNome">Filtrar por Nome:</label>
+              <input type="text" id="filtroNome" class="form-control">
+              <button class="btn btn-primary btn-block mt-2" onclick="aplicarFiltroNome()">Aplicar Filtro</button>
+            </div>
+            <div class="form-group">
+              <label for="filtroNumMatricula">Filtrar por Número de Matrícula:</label>
+              <input type="text" id="filtroNumMatricula" class="form-control">
+              <button class="btn btn-primary btn-block mt-2" onclick="aplicarFiltroNumMatricula()">Aplicar Filtro</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Espaço do Relatório à Direita -->
+      <div class="col-lg-8">
+        <div class="card shadow-sm">
+          <div class="card-body">
+            <h2 class="card-title">Relatório</h2>
+            <div class="table-responsive">
+              <table id="tabelaRelatorio" class="table table-bordered table-hover">
+                <thead class="thead-light">
+                  <tr>
+                    <th>Nome do Aluno</th>
+                    <th>Número do Armário</th>
+                    <th>Curso</th>
+                    <th>Número de Matrícula</th>
+                    <th>Número do Cartão</th>
+                    <th>Número da Biometria</th>
+                    <th>Ações</th>
+                  </tr>
+                </thead>
+                <tbody>
+                <!-- Linhas da tabela serão preenchidas dinamicamente -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
       </div>
 
-      <!-- Modal para edição -->
+              <!-- Modal para edição -->
       <div id="editModal" class="modal">
         <div class="modal-content">
           <span class="close">&times;</span>
           <h2>Editar Informações do Aluno</h2>
-          <form id="editForm">
-            <label for="idAluno">ID:</label>
-            <input type="text" id="idAluno" name="idAluno" readonly><br><br>
-            <label for="editNome">Nome:</label>
-            <input type="text" id="editNome" name="editNome"><br><br>
-            <label for="editArmario">Número do Armário:</label>
-            <input type="text" id="editArmario" name="editArmario"><br><br>
-            <label for="editCurso">Curso:</label>
-            <input type="text" id="editCurso" name="editCurso"><br><br>
-            <label for="editMatricula">Matrícula:</label>
-            <input type="text" id="editMatricula" name="editMatricula" readonly><br><br>
-            <!--label for="editRFID">Número do Cartão RFID:</label>
-            <input type="text" id="editRFID" name="editRFID" readonly><br><br>
-            <label for="editBiometria">Número da Biometria:</label>
-            <input type="text" id="editBiometria" name="editBiometria" style="background-color: #eee;" readonly><br><br>-->
-            <button type="button" id="saveButton">Salvar Alterações</button>
-          </form>
-        </div>
+            <form id="editForm">
+              <label for="idAluno">ID:</label>
+              <input type="text" id="idAluno" name="idAluno" readonly><br><br>
+              <label for="editNome">Nome:</label>
+              <input type="text" id="editNome" name="editNome"><br><br>
+              <label for="editArmario">Número do Armário:</label>
+              <input type="text" id="editArmario" name="editArmario"><br><br>
+              <label for="editCurso">Curso:</label>
+              <input type="text" id="editCurso" name="editCurso"><br><br>
+              <label for="editMatricula">Matrícula:</label>
+              <input type="text" id="editMatricula" name="editMatricula" readonly><br><br>
+              <label for="editRFID">Número do Cartão RFID:</label>
+              <input type="text" id="editRFID" name="editRFID" readonly><br><br>
+              <label for="editBiometria">Número da Biometria:</label>
+              <input type="text" id="editBiometria" name="editBiometria" readonly><br><br>
+              <button type="button" id="saveButton">Salvar Alterações</button>
+            </form>
+          </div>
       </div>
-
-      <div class="filtro-item">
-        <label for="filtroNome">Filtrar por Nome:</label>
-        <input type="text" id="filtroNome">
-        <button onclick="aplicarFiltroNome()">Aplicar Filtro</button>
-      </div>
-
-      <div class="filtro-item">
-        <label for="filtroNumMatricula">Filtrar por Número de Matrícula:</label>
-        <input type="text" id="filtroNumMatricula">
-        <button onclick="aplicarFiltroNumMatricula()">Aplicar Filtro</button>
-      </div>
-
-
-      <div class="filtro-item">
-        <label for="filtroHorarioAcesso">Filtrar por Horário de Acesso:</label>
-        <select id="filtroHorarioAcesso">
-          <option value="">Selecione...</option>
-          <option value="horarioManha">Manhã</option>
-          <option value="horarioTarde">Tarde</option>
-          <option value="horarioNoite">Noite</option>
-          <!-- Adicione mais opções conforme necessário -->
-        </select>
-        <button onclick="aplicarFiltroHorarioAcesso()">Aplicar Filtro</button>
-      </div>
-
-      <div class="filtro-item">
-        <label for="filtroNumCartaoRFID">Filtrar por Número do Cartão RFID:</label>
-        <input type="text" id="filtroNumCartaoRFID">
-        <button onclick="aplicarFiltroNumCartaoRFID()">Aplicar Filtro</button>
-      </div>
-    </div>
-
-    <!-- Espaço do Relatório à Direita -->
-    <div id="dadosRelatorioDemo" class="ml-4">
-      <h2>Relatório</h2>
-      <table id="tabelaRelatorio" class="table table-bordered">
-        <thead>
-          <tr>
-            <th>Nome do Aluno</th>
-            <th>Número do Armário</th>
-            <th>Curso</th>
-            <th>Número de Matrícula</th>
-            <th>Número do Cartão</th>
-            <th>Número da Biometria</th>
-
-            <th>Ações</th>
-          </tr>
-        </thead>
-        <tbody>
-          <!-- Linhas da tabela serão preenchidas dinamicamente -->
-        </tbody>
-      </table>
     </div>
   </div>
 
@@ -170,44 +155,6 @@
         }
       }
     }
-    // Lógica para aplicar o filtro por horário de acesso
-    function aplicarFiltroHorarioAcesso() {
-      var filtroHorarioAcesso = document.getElementById('filtroHorarioAcesso').value;
-      var tabela = document.getElementById('tabelaRelatorio');
-      var linhas = tabela.getElementsByTagName('tbody')[0].getElementsByTagName('tr');
-
-      // Itera sobre as linhas da tabela
-      for (var i = 0; i < linhas.length; i++) {
-        var linha = linhas[i];
-        var colunaHorarioAcesso = linha.getElementsByTagName('td')[2]; // Considerando que a coluna do horário de acesso é a terceira
-
-        // Verifica se o horário de acesso da linha corresponde ao filtro selecionado
-        if (filtroHorarioAcesso === "" || colunaHorarioAcesso.textContent.trim() === filtroHorarioAcesso) {
-          linha.style.display = ""; // Mostra a linha se corresponder ao filtro
-        } else {
-          linha.style.display = "none"; // Oculta a linha se não corresponder ao filtro
-        }
-      }
-    }
-
-    function aplicarFiltroNumCartaoRFID() {
-      var inputNumCartaoRFID = document.getElementById('filtroNumCartaoRFID').value.trim().toLowerCase();
-      var tabela = document.getElementById('tabelaRelatorio');
-      var linhas = tabela.getElementsByTagName('tbody')[0].getElementsByTagName('tr');
-
-      for (var i = 0; i < linhas.length; i++) {
-        var colunaNumCartaoRFID = linhas[i].getElementsByTagName('td')[4].innerText.trim().toLowerCase();
-
-        // Se o número do cartão RFID da linha corresponder ao filtro, mostra a linha; caso contrário, oculta-a
-        if (colunaNumCartaoRFID.includes(inputNumCartaoRFID)) {
-          linhas[i].style.display = '';
-        } else {
-          linhas[i].style.display = 'none';
-        }
-      }
-
-    }
-
 
     function aplicarFiltroNome() {
       var filtroNome = document.getElementById('filtroNome').value.toLowerCase();
@@ -227,9 +174,11 @@
         }
       }
     }
-
-
   </script>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="js/Relatorio.js"></script>
 </body>
 
 </html>

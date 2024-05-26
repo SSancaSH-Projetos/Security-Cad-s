@@ -1,157 +1,167 @@
-
-
-#header {
-    background-color: #460048;
-    /* Alterando a cor do cabeçalho */
-    text-align: center;
-    padding: 0px 0;
-    box-shadow: 0 2px 4px rgba(255, 0, 0, 0.1);
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
 }
 
-#menu {
-    background-color: #000000;
-    padding: 10px;
-    text-align: center;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
-    
-}
-
-
-#menu a {
+body {
+    font-family: 'Roboto', sans-serif;
     color: #fff;
+}
+#logo {
+    width: 70px; /* Tamanho menor para ocupar menos espaço vertical */
+    height: 100px;
+    align-items: center;
+  }
+  
+  #header {
+    background-color: #460048;
+    color: white;
+    padding: 20px;
+    text-align: left; /* Alinhar o texto à esquerda */
+    display: flex; /* Usar flexbox para alinhar os elementos */
+    align-items: center; /* Alinhar os elementos verticalmente */
+  }
+  #header img {
+    max-width: 200px; /* Ajuste o valor conforme necessário para o tamanho desejado */
+    height: 90px;
+    display: block;
+    margin: 0 auto; /* Centraliza horizontalmente */
+  }
+  
+  #logo {
+    max-width: 100px;
+  }
+  
+  
+  #menu {
+    background-color: #000000;
+    display: flex;
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+    padding: 10px 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 100%;
+  }
+  
+  #menu a {
+    color: white;
+    margin: 0 15px;
     text-decoration: none;
-    margin: 0 10px;
+    font-weight: 700;
     transition: color 0.3s;
-}
-
-#menu a:hover {
+  }
+  
+  #menu a:hover {
     color: #ffd700;
-    /* Alterando a cor do texto ao passar o mouse */
-}
-
-/* Dropdown Styles */
-.dropdown {
+  }
+  
+  #menu .dropdown {
+    position: relative;
     display: inline-block;
-}
-
-.dropdown a:hover {
-    color: #ffd700;
-}
-
-.dropdown-content {
+  }
+  
+  #menu .dropdown-content {
     display: none;
     position: absolute;
-    background-color: #050101;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    background-color: #343a40;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
     z-index: 1;
-}
-
-.dropdown-content a {
-    color: #fff;
+  }
+  
+  #menu .dropdown-content a {
+    color: white;
     padding: 12px 16px;
-    display: block;
     text-decoration: none;
-}
-
-.dropdown:hover .dropdown-content {
     display: block;
-}
-
-#banner {
-    background-image: url('banner.jpg');
-    background-size: cover;
-    height: 400px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    font-size: 24px;
-    color: #000000;
-    /* Alterando a cor do texto */
-}
-
-#destaque {
-    padding: 50px 20px;
-    text-align: center;
-    background-color: #460048;
-}
-
-.destaque-item {
-    margin-bottom: 30px;
-}
-
-.destaque-item h3 {
-    font-size: 20px;
-    margin-bottom: 10px;
-    color: #ffd700;
-    /* Alterando a cor do título */
-}
-
-.destaque-item p {
-    font-size: 20px;
-    /* Aumentando o tamanho da fonte */
-    color: #fff;
-    /* Alterando a cor do texto */
-}
-
-.conteudo-container {
-    display: flex;
-    justify-content: space-around;
-    max-width: 1200px;
-    margin: 20px auto;
-}
-
-#filtros {
-    background-color: #000000;
-    padding: 15px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    border-radius: 8px;
-    width: 20%;
-}
-
-#filtros label,
-#filtros input,
-#filtros button {
-    margin-bottom: 10px;
-}
-
-#filtros label {
+    transition: background-color 0.3s;
+  }
+  
+  #menu .dropdown-content a:hover {
+    background-color: #575757;
+  }
+  
+  #menu .dropdown:hover .dropdown-content {
     display: block;
-    font-weight: bold;
-    margin-bottom: 5px;
+  }
+/* Contêiner para imagem e informações */
+.imagem-container {
+    position: relative;
 }
 
-#filtros input {
+/* Imagem de fundo */
+.imagem-container img {
     width: 100%;
-    padding: 8px;
+    height: auto;
+    display: block;
+}
+
+/* Destaque - informações sobre o que oferecemos */
+#destaque {
+    position: absolute;
+    bottom: 3px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 10px;
+    max-width: 80%;
+    width: calc(100% - 40px); /* Ajuste para margens */
     box-sizing: border-box;
-    border: 1px solid #000000;
-    border-radius: 4px;
-    outline: none;
 }
 
-#filtros button {
-    background-color: #050101;
-    color: #000000;
-    padding: 10px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: color 0.4s;
-    /* Adicionado transição para suavizar a mudança de cor */
-    font-weight: bold;
+#destaque h2, #destaque h3, #destaque p {
+    margin: 10px 0;
 }
 
-#filtros button:hover {
-    background-color: #ffd700;
-    /* Cor amarela no hover */
-    color: #050101;
-    /* Cor do texto invertida para garantir contraste */
+#destaque h3 {
+    color: #e6dc10;
 }
 
-#dadosRelatorio {
-    width: 65%;
-    /* Adicione mais estilos conforme necessário */
+#destaque p {
+    color: #ffffff;
 }
 
+/* Estilo para itens de destaque */
+.destaque-item {
+    margin-bottom: 20px;
+}
 
+/* Media Queries para responsividade */
+@media (max-width: 768px) {
+    #menu {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #menu a {
+        margin: 5px 0;
+    }
+
+    #destaque {
+        padding: 15px;
+        width: calc(100% - 30px);
+    }
+
+    .destaque-item {
+        margin-bottom: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    #header {
+        padding: 5px 0;
+    }
+
+    #destaque {
+        padding: 10px;
+        width: calc(100% - 20px);
+    }
+
+    .destaque-item {
+        margin-bottom: 10px;
+    }
+}

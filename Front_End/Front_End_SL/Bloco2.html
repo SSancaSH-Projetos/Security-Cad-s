@@ -8,149 +8,187 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
     <link rel="icon" href="img/LogoDaEquipe.png" type="image/x-icon" />
     <title>Página Inicial</title>
-    <link rel="stylesheet" href="css/bloco2.css">
+    <link rel="stylesheet" href="css/PaginaInicial.css">
 </head>
 
 <body>
 
     <!-- Header -->
     <div id="header">
-        <h1>Secure Lockers</h1>
+        <img id="logo" src="img/LogoDaEquipe.png" alt="Logo">
     </div>
 
     <!-- Menu -->
-    <nav id="menu">
-        <a href="PaginaInicial.html"><i class="fas fa-home"></i> Página Inicial</a>
-        <a href="Relatorio.html"><i class="fas fa-file-alt"></i> Relatório</a>
-        <div class="dropdown">
-            <a class="dropdown-btn"><i class="fas fa-user-plus"></i> Cadastro</a>
-            <div class="dropdown-content">
-                <a href="CadastroAluno.html">Aluno</a>
-                <a href="CadastroCurso.html">Curso</a>
-            </div>
-        </div>
-        <a href="Sobre.html"><i class="fas fa-question-circle"></i> Sobre</a>
-    </nav>
-
-    <!-- Dropdown -->
-    <div class="lnk2 fix">
-        <a class="lista1" href="#">Usinagem</a>
-        <div class="lista2">
-            <a class="lista-link link" href="inicio.html">Inicio</a>
-            <a class="lista-link link" href="PaginaInicial.html">Mecanica</a>
-            <a class="lista-link link" href="Bloco3.html">Laboratorio</a>
-        </div>
+    <div id="menu">
+        <ul>
+            <li><a href="inicio.html"><i class="fas fa-home"></i> Inicio </a></li>
+            <li><a href="Relatorio.html"><i class="fas fa-file-alt"></i> Relatório</a></li>
+            <li class="dropdown">
+                <a href="#"><i class="fas fa-user-plus"></i> Cadastro</a>
+                <ul class="dropdown-content">
+                    <li><a href="CadastroAluno.html">Aluno</a></li>
+                </ul>
+            </li>
+            <li><a href="Sobre.html"><i class="fas fa-question-circle"></i> Sobre</a></li>
+        </ul>
     </div>
+
+   <!-- Dropdown -->
+   <div class="lnk2 fix">
+    <a class="lista1" href="Bloco2.html">Usinagem</a>
+    <div class="lista2">
+        <a class="lista-link link" href="inicio.html">Inicio</a>
+        <a class="lista-link link" href="PaginaInicial.html">Mecanica</a>
+        <a class="lista-link link" href="Bloco3.html">Laboratorio</a>
+    </div>
+</div>
 
     <!-- Conteúdo da Página Inicial -->
     <div id="plano-cartesiano" class="plano-cartesiano">
-        <!-- Adicione mais armários conforme necessário -->
-        <div class="assento" data-numero="1">
-            <div class="tooltip">Informações sobre o armário 1</div>
+        <div class="assento" data-numero="37" style="background-image: url(img/armario\ azul2.png);">
+            <div class="numero">37</div>
+            <div class="tooltip" id="infoArmario37"></div>
         </div>
-        <div class="assento" data-numero="2">
-            <div class="tooltip">Informações sobre o armário 2</div>
+        <div class="assento" data-numero="38" style="background-image: url(img/armario\ vermelho.jpg);">
+            <div class="numero">38</div>
+            <div class="tooltip" id="infoArmario38"></div>
         </div>
-        <div class="assento" data-numero="3">
-            <div class="tooltip">Informações sobre o armário 3</div>
+        <div class="assento" data-numero="39" style="background-image: url(img/armario\ azul2.png);">
+            <div class="numero">39</div>
+            <div class="tooltip" id="infoArmario39"></div>
         </div>
-        <div class="assento" data-numero="4">
-            <div class="tooltip">Informações sobre o armário 4</div>
+        <div class="assento" data-numero="40" style="background-image: url(img/armario\ vermelho.jpg);">
+            <div class="numero">40</div>
+            <div class="tooltip" id="infoArmario40"></div>
         </div>
-        <div class="assento" data-numero="5">
-            <div class="tooltip">Informações sobre o armário 5</div>
+        <div class="assento" data-numero="41" style="background-image: url(img/armario\ azul2.png);">
+            <div class="numero">41</div>
+            <div class="tooltip" id="infoArmario41"></div>
         </div>
-        <div class="assento" data-numero="6">
-            <div class="tooltip">Informações sobre o armário 6</div>
+        <div class="assento" data-numero="42" style="background-image: url(img/armario\ vermelho.jpg);">
+            <div class="numero">42</div>
+            <div class="tooltip" id="infoArmario42"></div>
         </div>
-        <div class="assento" data-numero="7">
-            <div class="tooltip">Informações sobre o armário 7</div>
+        <div class="assento" data-numero="43" style="background-image: url(img/armario\ azul2.png);">
+            <div class="numero">43</div>
+            <div class="tooltip" id="infoArmario43"></div>
         </div>
-        <div class="assento" data-numero="8">
-            <div class="tooltip">Informações sobre o armário 8</div>
+        <div class="assento" data-numero="44" style="background-image: url(img/armario\ vermelho.jpg);">
+            <div class="numero">44</div>
+            <div class="tooltip" id="infoArmario44"></div>
         </div>
-        <div class="assento" data-numero="9">
-            <div class="tooltip">Informações sobre o armário 9</div>
+        <div class="assento" data-numero="45" style="background-image: url(img/armario\ azul2.png);">
+            <div class="numero">45</div>
+            <div class="tooltip" id="infoArmario45"></div>
         </div>
-        <div class="assento" data-numero="10">
-            <div class="tooltip">Informações sobre o armário 10</div>
+        <div class="assento" data-numero="46" style="background-image: url(img/armario\ vermelho.jpg);">
+            <div class="numero">46</div>
+            <div class="tooltip" id="infoArmario46"></div>
         </div>
-        <div class="assento" data-numero="11">
-            <div class="tooltip">Informações sobre o armário 11</div>
+        <div class="assento" data-numero="47" style="background-image: url(img/armario\ azul2.png);">
+            <div class="numero">47</div>
+            <div class="tooltip" id="infoArmario47"></div>
         </div>
-        <div class="assento" data-numero="12">
-            <div class="tooltip">Informações sobre o armário 12</div>
+        <div class="assento" data-numero="48" style="background-image: url(img/armario\ vermelho.jpg);">
+            <div class="numero">48</div>
+            <div class="tooltip" id="infoArmario48"></div>
         </div>
-        <div class="assento" data-numero="13">
-            <div class="tooltip">Informações sobre o armário 13</div>
+        <div class="assento" data-numero="49" style="background-image: url(img/armario\ vermelho.jpg);">
+            <div class="numero">49</div>
+            <div class="tooltip" id="infoArmario49"></div>
         </div>
-        <div class="assento" data-numero="14">
-            <div class="tooltip">Informações sobre o armário 14</div>
+        <div class="assento" data-numero="50" style="background-image: url(img/armario\ azul2.png);">
+            <div class="numero">50</div>
+            <div class="tooltip" id="infoArmario50"></div>
         </div>
-        <div class="assento" data-numero="15">
-            <div class="tooltip">Informações sobre o armário 15</div>
+        <div class="assento" data-numero="51" style="background-image: url(img/armario\ vermelho.jpg);">
+            <div class="numero">51</div>
+            <div class="tooltip" id="infoArmario51"></div>
         </div>
-        <div class="assento" data-numero="16">
-            <div class="tooltip">Informações sobre o armário 16</div>
+        <div class="assento" data-numero="52" style="background-image: url(img/armario\ azul2.png);">
+            <div class="numero">52</div>
+            <div class="tooltip" id="infoArmario52"></div>
         </div>
-        <div class="assento" data-numero="17">
-            <div class="tooltip">Informações sobre o armário 17</div>
+        <div class="assento" data-numero="53" style="background-image: url(img/armario\ vermelho.jpg);">
+            <div class="numero">53</div>
+            <div class="tooltip" id="infoArmario53"></div>
         </div>
-        <div class="assento" data-numero="18">
-            <div class="tooltip">Informações sobre o armário 18</div>
+        <div class="assento" data-numero="54" style="background-image: url(img/armario\ azul2.png);">
+            <div class="numero">54</div>
+            <div class="tooltip" id="infoArmario54"></div>
         </div>
-        <div class="assento" data-numero="19">
-            <div class="tooltip">Informações sobre o armário 19</div>
+        <div class="assento" data-numero="55" style="background-image: url(img/armario\ vermelho.jpg);">
+            <div class="numero">55</div>
+            <div class="tooltip" id="infoArmario55"></div>
         </div>
-        <div class="assento" data-numero="20">
-            <div class="tooltip">Informações sobre o armário 20</div>
+        <div class="assento" data-numero="56" style="background-image: url(img/armario\ azul2.png);">
+            <div class="numero">56</div>
+            <div class="tooltip" id="infoArmario56"></div>
         </div>
-        <div class="assento" data-numero="21">
-            <div class="tooltip">Informações sobre o armário 21</div>
+        <div class="assento" data-numero="57" style="background-image: url(img/armario\ vermelho.jpg);">
+            <div class="numero">57</div>
+            <div class="tooltip" id="infoArmario58"></div>
         </div>
-        <div class="assento" data-numero="22">
-            <div class="tooltip">Informações sobre o armário 22</div>
+        <div class="assento" data-numero="59" style="background-image: url(img/armario\ azul2.png);">
+            <div class="numero">59</div>
+            <div class="tooltip" id="infoArmario59"></div>
         </div>
-        <div class="assento" data-numero="23">
-            <div class="tooltip">Informações sobre o armário 23</div>
+        <div class="assento" data-numero="60" style="background-image: url(img/armario\ vermelho.jpg);">
+            <div class="numero">60</div>
+            <div class="tooltip" id="infoArmario60"></div>
         </div>
-        <div class="assento" data-numero="24">
-            <div class="tooltip">Informações sobre o armário 24</div>
+        <div class="assento" data-numero="61" style="background-image: url(img/armario\ azul2.png);">
+            <div class="numero">61</div>
+            <div class="tooltip" id="infoArmario61"></div>
         </div>
-        <div class="assento" data-numero="25">
-            <div class="tooltip">Informações sobre o armário 25</div>
+        <div class="assento" data-numero="62" style="background-image: url(img/armario\ azul2.png);">
+            <div class="numero">62</div>
+            <div class="tooltip" id="infoArmario62"></div>
         </div>
-        <div class="assento" data-numero="26">
-            <div class="tooltip">Informações sobre o armário 26</div>
+        <div class="assento" data-numero="63" style="background-image: url(img/armario\ vermelho.jpg);">
+            <div class="numero">63</div>
+            <div class="tooltip" id="infoArmario63"></div>
         </div>
-        <div class="assento" data-numero="27">
-            <div class="tooltip">Informações sobre o armário 27</div>
+        <div class="assento" data-numero="64" style="background-image: url(img/armario\ azul2.png);">
+            <div class="numero">64</div>
+            <div class="tooltip" id="infoArmario64"></div>
         </div>
-        <div class="assento" data-numero="28">
-            <div class="tooltip">Informações sobre o armário 28</div>
+        <div class="assento" data-numero="65" style="background-image: url(img/armario\ vermelho.jpg);">
+            <div class="numero">65</div>
+            <div class="tooltip" id="infoArmario65"></div>
         </div>
-        <div class="assento" data-numero="29">
-            <div class="tooltip">Informações sobre o armário 29</div>
+        <div class="assento" data-numero="66" style="background-image: url(img/armario\ azul2.png);">
+            <div class="numero">66</div>
+            <div class="tooltip" id="infoArmario66"></div>
         </div>
-        <div class="assento" data-numero="30">
-            <div class="tooltip">Informações sobre o armário 30</div>
+        <div class="assento" data-numero="67" style="background-image: url(img/armario\ vermelho.jpg);">
+            <div class="numero">67</div>
+            <div class="tooltip" id="infoArmario67"></div>
         </div>
-        <div class="assento" data-numero="31">
-            <div class="tooltip">Informações sobre o armário 32</div>
+        <div class="assento" data-numero="68" style="background-image: url(img/armario\ azul2.png);">
+            <div class="numero">68</div>
+            <div class="tooltip" id="infoArmario68"></div>
         </div>
-        <div class="assento" data-numero="33">
-            <div class="tooltip">Informações sobre o armário 33</div>
+        <div class="assento" data-numero="69" style="background-image: url(img/armario\ vermelho.jpg);">
+            <div class="numero">69</div>
+            <div class="tooltip" id="infoArmario69"></div>
         </div>
-        <div class="assento" data-numero="34">
-            <div class="tooltip">Informações sobre o armário 34</div>
+        <div class="assento" data-numero="70" style="background-image: url(img/armario\ azul2.png);">
+            <div class="numero">70</div>
+            <div class="tooltip" id="infoArmario70"></div>
         </div>
-        <div class="assento" data-numero="35">
-            <div class="tooltip">Informações sobre o armário 35</div>
+        <div class="assento" data-numero="71" style="background-image: url(img/armario\ vermelho.jpg);">
+            <div class="numero">71</div>
+            <div class="tooltip" id="infoArmario71"></div>
         </div>
-        <div class="assento" data-numero="36">
-            <div class="tooltip">Informações sobre o armário 36</div>
+        <div class="assento" data-numero="72" style="background-image: url(img/armario\ azul2.png);">
+            <div class="numero">72</div>
+            <div class="tooltip" id="infoArmario72"></div>
         </div>
-        <!-- ... outros armários ... -->
+        <div class="assento" data-numero="36" style="background-image: url(img/armario\ vermelho.jpg);">
+            <div class="numero">36</div>
+            <div class="tooltip" id="infoArmario36"></div>
+        </div>
     </div>
 
     <script src="js/PaginaInicial.js"></script>

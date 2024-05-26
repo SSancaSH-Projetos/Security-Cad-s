@@ -82,7 +82,8 @@ function editarInformacoes(aluno) {
     document.getElementById('editArmario').value = aluno.armario.numero;
     document.getElementById('editCurso').value = aluno.curso;
     document.getElementById('editMatricula').value = aluno.matricula;
-  
+    document.getElementById('editRFID').value = aluno.cartaoRFID.numeroCartao;
+    document.getElementById('editBiometria').value = aluno.biometria.numeroBiometria;
     openModal();
   
     document.getElementById('saveButton').onclick = () => salvarAlteracoes(aluno.matricula);
@@ -94,12 +95,16 @@ async function salvarAlteracoes(matriculaAntiga) {
     const novoArmario = document.getElementById('editArmario').value;
     const novoCurso = document.getElementById('editCurso').value;
     const novaMatricula = document.getElementById('editMatricula').value;
-  
+    const novoCartaoRFID = document.getElementById('editRFID').value;
+    const novaBiometria = document.getElementById('editBiometria').value;
+
     const dadosAtualizados = {
       nome: novoNome,
       numeroArmario: novoArmario ,
       curso: novoCurso,
       matricula: novaMatricula,
+      numeroCartaoRFID: novoCartaoRFID,
+      numeroDaBiometria: novaBiometria
     };
   
     console.log(dadosAtualizados)
