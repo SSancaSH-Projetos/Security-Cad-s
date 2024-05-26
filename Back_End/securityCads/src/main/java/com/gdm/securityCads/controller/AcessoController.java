@@ -71,21 +71,26 @@ public class AcessoController {
 	}
 
 
-	@GetMapping("/consultar/biometria/{numeroArmario}/{numeroBiometria}")
-	public ResponseEntity<String> consultarBiometria(@PathVariable("numeroArmario") String numeroArmario,
-													 @PathVariable("numeroBiometria") String biometria){
-		List<Aluno> alunosNaBase = alunoRepository.findAll();
+	@GetMapping("/biometria/{numeroArmario}/{fingerID}")
+	public ResponseEntity<String> verificarBiometria(@PathVariable("numeroArmario") String numeroArmario,
+													 @PathVariable("fingerID") String fingerID) {
+		try {
+			int numeroArmarioInt = Integer.parseInt(numeroArmario);
 
-		for (Aluno aluno : alunosNaBase) {
-			if (aluno.getArmario().getNumero() == Integer.parseInt(numeroArmario) &&
-					aluno.getBiometria().getNumeroBiometria().equals(biometria)) {
-				System.out.println("Acesso Liberado biometria!");
-				return ResponseEntity.ok("ok");
+			List<Aluno> alunosNaBase = alunoRepository.findAll();
+			for (Aluno aluno : alunosNaBase) {
+				if (aluno.getArmario().getNumero() == numeroArmarioInt &&
+						aluno.getBiometria().getNumeroBiometria().equals(fingerID)) {
+					return ResponseEntity.ok("ok");
+				}
 			}
+		} catch (NumberFormatException e) {
+			return ResponseEntity.badRequest().body("Invalid number format");
 		}
-		System.out.println("Acesso Negado biometria!");
+
 		return ResponseEntity.notFound().build();
 	}
+
 
 
 	private boolean cadastroIniciado = false;

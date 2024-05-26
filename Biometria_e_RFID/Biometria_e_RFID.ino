@@ -25,6 +25,7 @@
 const char* pegarPosicaoBiometriaUrl = "http://192.168.0.13:8080/acesso/pegarPosicaoBiometria";
 const char* modoCadastroEndpointUrl = "http://192.168.0.13:8080/acesso/modoCadastroIniciado";
 const char* encerrarCadastroBiometriaUrl = "http://192.168.0.13:8080/acesso/encerrarCadastroBiometria";
+const char* verificarBiometriaUrl = "http://192.168.0.13:8080/acesso/biometria";
 
 // Constantes e variáveis
 MFRC522 mfrc522(SS_PIN, -1);
@@ -218,14 +219,55 @@ void checkFingerprint() {
         Serial.print(fingerSensor.confidence);
         Serial.print(" na posição ");
         Serial.println(fingerSensor.fingerID);
-        
-        turnOnLED("verde");
-        playShortSound();
-        activateSolenoide();
-        delay(ledDuration);
-        turnOffLED();
+
+        // Converte o fingerID para String e usa para ambas as variáveis
+        String fingerIDStr = String(fingerSensor.fingerID);
+
+        // Verificar no banco de dados
+        verificarBiometriaNoBanco(fingerIDStr, fingerIDStr);
     }
 }
+
+void verificarBiometriaNoBanco(String numeroArmario, String fingerID) {
+    if (WiFi.status() == WL_CONNECTED) {
+        HTTPClient http;
+        String url = String(verificarBiometriaUrl) + "/" + numeroArmario + "/" + fingerID;
+
+        Serial.print("URL da requisição: ");
+        Serial.println(url);
+
+        http.begin(url);
+        int httpCode = http.GET();
+
+        if (httpCode == HTTP_CODE_OK) {
+            String payload = http.getString();
+            if (payload == "ok") {
+                Serial.println("Digital confirmada no banco de dados. Acesso liberado!");
+                turnOnLED("verde");
+                playShortSound();
+                activateSolenoide();
+            } else {
+                Serial.println("Digital não confirmada no banco de dados. Acesso negado!");
+                turnOnLED("vermelho");
+                playLongSound();
+            }
+        } else {
+            Serial.println("Erro ao verificar digital no banco de dados. Código de resposta HTTP: " + String(httpCode));
+            turnOnLED("vermelho");
+            playLongSound();
+        }
+
+        http.end();
+    } else {
+        Serial.println("Não conectado ao Wi-Fi.");
+        turnOnLED("vermelho");
+        playLongSound();
+    }
+
+    delay(ledDuration);
+    turnOffLED();
+}
+
 
 void readAndStoreRequest(const char* url_read) {
     unsigned long startTime = millis(); 
@@ -328,3 +370,4 @@ void playLongSound() {
     delay(2000);
     noTone(BUZZER_PIN);
 }
+
