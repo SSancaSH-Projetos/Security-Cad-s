@@ -9,7 +9,7 @@
 #define MOSI_PIN 23
 #define MISO_PIN 21
 #define SS_PIN 22
-#define LED_RGB_R 25
+#define LED_RGB_R 13 //estava 25 tentamos 35, tentamos o 15 e deu certo
 #define LED_RGB_G 26
 #define LED_RGB_B 27
 #define BUZZER_PIN 12
@@ -268,7 +268,6 @@ void verificarBiometriaNoBanco(String numeroArmario, String fingerID) {
     turnOffLED();
 }
 
-
 void readAndStoreRequest(const char* url_read) {
     unsigned long startTime = millis(); 
     while (millis() - startTime < 3000) {
@@ -336,10 +335,12 @@ void sendRFIDtoBackend(const char* rfid) {
 }
 
 void turnOnLED(const char* color) {
+    // Desliga todos os LEDs inicialmente
     digitalWrite(LED_RGB_R, LOW);
     digitalWrite(LED_RGB_G, LOW);
     digitalWrite(LED_RGB_B, LOW);
 
+    // Liga o LED correspondente à cor
     if (strcmp(color, "verde") == 0) {
         digitalWrite(LED_RGB_G, HIGH);
     } else if (strcmp(color, "vermelho") == 0) {
@@ -348,26 +349,26 @@ void turnOnLED(const char* color) {
 }
 
 void turnOffLED() {
+    // Desliga todos os LEDs
     digitalWrite(LED_RGB_R, LOW);
     digitalWrite(LED_RGB_G, LOW);
     digitalWrite(LED_RGB_B, LOW);
 }
 
-void activateSolenoide() {
-    digitalWrite(PIN_SOLENOIDE, HIGH);
-    delay(3000);
-    digitalWrite(PIN_SOLENOIDE, LOW);
-}
-
 void playShortSound() {
     tone(BUZZER_PIN, 1000);
-    delay(100);
+    delay(100); // Toca o som por 100 ms
     noTone(BUZZER_PIN);
 }
 
 void playLongSound() {
     tone(BUZZER_PIN, 1000);
-    delay(2000);
+    delay(2000); // Toca o som por 2000 ms (2 segundos)
     noTone(BUZZER_PIN);
 }
 
+void activateSolenoide() {
+    digitalWrite(PIN_SOLENOIDE, HIGH); // Ativa a solenoide
+    delay(3000); // Mantém a solenoide ativada por 3 segundos
+    digitalWrite(PIN_SOLENOIDE, LOW); // Desativa a solenoide
+}
