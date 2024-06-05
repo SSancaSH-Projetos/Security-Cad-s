@@ -1,0 +1,550 @@
+body,
+html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  user-select: none;
+}
+
+.containerChuva {
+  position: relative;
+  overflow: hidden;
+}
+
+.chuva {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  overflow: hidden;
+}
+
+.logo-chuva {
+  position: absolute;
+  animation: quedaInfinita 2s linear infinite;
+}
+
+.logo-chuva:nth-child(n + 4) {
+  animation-delay: calc(var(--i) * 0.1s);
+  /* Adiciona um atraso para as novas logos aparecerem */
+}
+
+.logo-chuva img {
+  width: 28px !important;
+  height: 28px !important;
+}
+
+@keyframes chuvaAnimar {
+  0% {
+    transform: translateY(-10%) rotate(0);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(110%);
+    opacity: 1;
+  }
+}
+
+@keyframes quedaInfinita {
+  0% {
+    transform: translateY(-10%);
+  }
+
+  100% {
+    transform: translateY(2000%);
+    opacity: 1.5;
+  }
+}
+
+
+/* Define a posição aleatória de cada logo-chuva */
+.logo-chuva:nth-child(1) {
+  top: -10%;
+  left: 10%;
+}
+
+.logo-chuva:nth-child(2) {
+  top: -15%;
+  left: 30%;
+}
+
+.logo-chuva:nth-child(3) {
+  top: -20%;
+  left: 50%;
+}
+
+.logo-chuva:nth-child(4) {
+  top: -25%;
+  left: 70%;
+}
+
+.logo-chuva:nth-child(5) {
+  top: -30%;
+  left: 90%;
+}
+
+.logo-chuva:nth-child(6) {
+  top: -35%;
+  left: 15%;
+}
+
+.logo-chuva:nth-child(7) {
+  top: -40%;
+  left: 35%;
+}
+
+.logo-chuva:nth-child(8) {
+  top: -45%;
+  left: 55%;
+}
+
+.logo-chuva:nth-child(9) {
+  top: -50%;
+  left: 75%;
+}
+
+.logo-chuva:nth-child(10) {
+  top: -55%;
+  left: 95%;
+}
+
+.logo-chuva:nth-child(11) {
+  top: -60%;
+  left: 20%;
+}
+
+.logo-chuva:nth-child(12) {
+  top: -65%;
+  left: 40%;
+}
+
+.logo-chuva:nth-child(13) {
+  top: -70%;
+  left: 60%;
+}
+
+.logo-chuva:nth-child(14) {
+  top: -75%;
+  left: 80%;
+}
+
+.logo-chuva:nth-child(15) {
+  top: -80%;
+  left: 5%;
+}
+
+.logo-chuva:nth-child(16) {
+  top: -85%;
+  left: 25%;
+}
+
+.logo-chuva:nth-child(17) {
+  top: -90%;
+  left: 45%;
+}
+
+.logo-chuva:nth-child(18) {
+  top: -95%;
+  left: 65%;
+}
+
+
+
+
+@keyframes swing {
+  0% {
+    transform: rotateY(0deg);
+  }
+
+  50% {
+    transform: rotateY(360deg);
+  }
+
+  100% {
+    transform: rotateY(0deg);
+  }
+}
+
+#logo {
+  animation: swing 10s ease-in-out infinite;
+  z-index: 3;
+}
+
+#header {
+  position: relative;
+  z-index: 2;
+  background-color: #dc19e2;
+  height: 120px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+#header img {
+  max-width: 200px;
+  height: 100px;
+}
+
+#menu {
+  background-color: #000000;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.9);
+  padding: 15px;
+}
+
+#menu a {
+  display: inline-block;
+  margin: 0 15px;
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: bold;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+#menu a:hover {
+  color: #ffd700;
+}
+
+/* Contêiner para imagem e informações */
+.imagem-container {
+  position: relative;
+}
+
+/* Imagem de fundo */
+.imagem-container img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Destaque - informações sobre o que oferecemos */
+#destaque {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 4px;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.7);
+  border-radius: 20px;
+  max-width: 80%;
+  width: calc(60% - 60px);
+  /* Ajuste para margens */
+  box-sizing: border-box;
+}
+
+#destaque h2,
+#destaque h3,
+#destaque p {
+  margin: 30px 0;
+}
+
+#destaque h3 {
+  color: #e6dc10;
+}
+
+#destaque p {
+  color: #ffffff;
+}
+
+/* Estilo para itens de destaque */
+.destaque-item {
+  margin-bottom: 20px;
+}
+
+/* Media Queries para responsividade */
+@media (max-width: 768px) {
+  #menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #menu a {
+    margin: 5px 0;
+  }
+
+  #destaque {
+    padding: 15px;
+    width: calc(100% - 30px);
+  }
+
+  .destaque-item {
+    margin-bottom: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  #header {
+    padding: 5px 0;
+  }
+
+  #destaque {
+    padding: 10px;
+    width: calc(100% - 20px);
+  }
+
+  .destaque-item {
+    margin-bottom: 10px;
+  }
+}
+
+
+body {
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(135deg, #900da1 55%, #d20ed5 25%);
+  background-size: cover;
+  position: relative;
+  font-family: 'Roboto', sans-serif;
+  color: #fff;
+}
+
+#menu a:hover {
+  transform: translateY(-5px);
+  color: #fbff13;
+}
+
+.container {
+  position: relative;
+  z-index: 2;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 85px;
+}
+
+.card-deck {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.card {
+  width: 300px;
+  height: 300px;
+  background-color: #000;
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.4);
+  opacity: 0;
+  transition: opacity 0.3s;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+.card:hover .overlay {
+  opacity: 1;
+}
+
+.text {
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.icon {
+  font-size: 48px;
+  color: #ffd700;
+  margin-bottom: 10px;
+}
+
+.card-text {
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.card:hover .text,
+.card:hover .card-text.visible {
+  opacity: 1;
+}
+
+/* CSS para o botão */
+.botao-expansivel {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 50px;
+  height: 595px;
+  background-color: #e514f8;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  z-index: 9999;
+  transition: left 0.3s;
+  /* Animação para mover o botão */
+}
+
+.botao-expansivel .icone-seta {
+  transform: rotate(-90deg);
+  /* Inicialmente, a seta aponta para a esquerda */
+  color: #fff;
+}
+
+.conteudo-expansivel {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  /* Inicialmente, o conteúdo está oculto */
+  height: 595px;
+  background-color: #fff;
+  overflow-y: auto;
+  transition: width 0.3s, left 0.3s;
+  /* Animações para exibir o conteúdo e mover o botão */
+  z-index: 9998;
+  /* Garante que o conteúdo esteja abaixo do botão */
+}
+
+.botao-expandido {
+  left: calc(100% - 50px);
+  /* Largura da tela - largura do botão */
+}
+
+.botao-expandido .icone-seta {
+  transform: rotate(90deg);
+  /* Quando expandido, a seta aponta para a direita */
+}
+
+.botao-expandido .conteudo-expansivel {
+  width: calc(100% - 50px);
+  /* Largura da tela - largura do botão */
+}
+
+
+
+/* estilo para os cartões superiores */
+.cartoes-superiores {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  /* espaço entre os dois containers */
+}
+
+.cartoes-superiores .novo-card {
+  width: calc(20%);
+  /* 49% do espaço disponível, com margem */
+}
+
+/* estilo para os cartões inferiores */
+.cartoes-inferiores {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.cartoes-inferiores .novo-card {
+  width: calc(20%);
+  /* 24% do espaço disponível, com margem */
+  margin-bottom: 20px;
+}
+
+.novo-card {
+  width: calc(25% - 20px);
+  margin: 10px;
+  perspective: 1000px;
+  /* Adicionei uma altura ao card para garantir que ele seja visível */
+  height: 300px;
+}
+
+.novo-card-front,
+.novo-card-back {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  backface-visibility: hidden;
+  border-radius: 30px;
+  transition: transform 0.5s;
+  /* Adicione a transição aqui */
+}
+
+.novo-card-front {
+  background-color: #000000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.5s;
+}
+
+.novo-card-back {
+  background-color: #ff0000;
+  transform: rotateY(180deg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.novo-card:hover .novo-card-front {
+  transform: rotateY(180deg);
+}
+
+.novo-card:hover .novo-card-back {
+  transform: rotateY(0deg);
+}
+
+.novo-circle {
+  width: 80px;
+  height: 80px;
+  background-color: #e514f8;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+
+.novo-circle img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.novo-role,
+.novo-description {
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.novo-social-icons {
+  display: flex;
+}
+
+.novo-social-icons a {
+  margin-right: 10px;
+  color: #333;
+}

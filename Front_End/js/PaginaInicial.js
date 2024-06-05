@@ -1,3 +1,20 @@
+
+
+// PaginaInicial.js
+
+document.addEventListener('DOMContentLoaded', function() {
+    var aluno = JSON.parse(localStorage.getItem('alunoCadastro'));
+
+    if (aluno && aluno.numeroArmario) {
+        var armario = document.querySelector('.assento[data-numero="' + aluno.numeroArmario + '"]');
+        if (armario) {
+            var infoArmario = document.getElementById('infoArmario' + aluno.numeroArmario);
+            infoArmario.innerHTML = 'Nome: ' + aluno.nome + '<br>Email: ' + aluno.email + '<br>Matrícula: ' + aluno.matricula + '<br>Curso: ' + aluno.curso;
+        }
+    }
+});
+
+
 document.addEventListener("DOMContentLoaded", function() {
     const armarios = document.querySelectorAll(".assento");
 

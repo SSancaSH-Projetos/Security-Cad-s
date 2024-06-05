@@ -95,6 +95,7 @@ public class AcessoController {
 
 	private boolean cadastroIniciado = false;
 	private Integer posicaoRecebida = -1;
+	private String mensagemAtual = "";
 
 	@PostMapping("/iniciarCadastroBiometria")
 	public Integer iniciaCadastroBiometria(@RequestBody Integer posicao) {
@@ -121,9 +122,25 @@ public class AcessoController {
 		return cadastroIniciado;
 	}
 
-	@GetMapping("/verificarCadastroBiometria")
-	public boolean verificarCadastro() {
-		return cadastroIniciado;
+	@PostMapping("/mensagemArduino")
+	public ResponseEntity<String> receberMensagemArduino(@RequestBody String mensagem) {
+		// Armazena a mensagem recebida na variável global
+		mensagemAtual = mensagem;
+
+		// Retorna a mensagem recebida como resposta
+		return ResponseEntity.ok(mensagemAtual);
+	}
+
+	// Endpoint para obter a mensagem atual do Arduino
+	@GetMapping("/mensagemAtual")
+	public ResponseEntity<String> obterMensagemAtual() {
+		if (!mensagemAtual.isEmpty()) {
+			String mensagem = mensagemAtual;
+			mensagemAtual = ""; // Limpa a mensagem atual para garantir que seja exibida apenas uma vez
+			return ResponseEntity.ok(mensagem);
+		} else {
+			return ResponseEntity.notFound().build();
+		}
 	}
 
 }

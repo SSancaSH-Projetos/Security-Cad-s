@@ -22,10 +22,10 @@
 #define WIFI_PASSWORD "12345678"
 
 // URLs do servidor
-const char* pegarPosicaoBiometriaUrl = "http://192.168.0.13:8080/acesso/pegarPosicaoBiometria";
-const char* modoCadastroEndpointUrl = "http://192.168.0.13:8080/acesso/modoCadastroIniciado";
-const char* encerrarCadastroBiometriaUrl = "http://192.168.0.13:8080/acesso/encerrarCadastroBiometria";
-const char* verificarBiometriaUrl = "http://192.168.0.13:8080/acesso/biometria";
+const char* pegarPosicaoBiometriaUrl = "http://10.187.244.75:8080/acesso/pegarPosicaoBiometria";
+const char* modoCadastroEndpointUrl = "http://10.187.244.75:8080/acesso/modoCadastroIniciado";
+const char* encerrarCadastroBiometriaUrl = "http://10.187.244.75:8080/acesso/encerrarCadastroBiometria";
+const char* verificarBiometriaUrl = "http://10.187.244.75:8080/acesso/biometria";
 
 // Constantes e variáveis
 MFRC522 mfrc522(SS_PIN, -1);
@@ -74,7 +74,7 @@ void loop() {
     // Verificação de RFID
     if (currentTime - lastConnectionTime >= connectionInterval) {
         lastConnectionTime = currentTime;
-        readAndStoreRequest("http://192.168.0.13:8080/acesso/consultar/1/");
+        readAndStoreRequest("http://10.187.244.75:8080/acesso/consultar/1/");
     }
 }
 
@@ -112,11 +112,41 @@ void verificarModoCadastro() {
     http.end();
 }
 
+void enviarMensagemBackend(const char* mensagem) {
+    if (WiFi.status() == WL_CONNECTED) {
+        HTTPClient http;
+        String mensagemEndpointUrl = "http://10.187.244.75:8080/acesso/mensagemArduino"; // Defina o URL do endpoint do backend
+
+        http.begin(mensagemEndpointUrl);
+        http.addHeader("Content-Type", "application/json");
+
+        // Cria o payload JSON com a mensagem
+        String payload = "{\"mensagem\": \"" + String(mensagem) + "\"}";
+
+        int httpResponseCode = http.POST(payload);
+
+        if (httpResponseCode > 0) {
+            Serial.print("Mensagem enviada para o backend: ");
+            Serial.println(mensagem);
+        } else {
+            Serial.print("Erro ao enviar mensagem para o backend: ");
+            Serial.println(httpResponseCode);
+        }
+
+        http.end();
+    } else {
+        Serial.println("Não conectado ao Wi-Fi.");
+    }
+}
+
+
+
 void storeFingerprint() {
     int location = obterPosicaoBiometria();
 
     if(location < 1 || location > 149) {
         Serial.println(F("Posição inválida"));
+        enviarMensagemBackend("Posição inválida");
         return;
     }
 
@@ -124,41 +154,50 @@ void storeFingerprint() {
     Serial.println(location);
 
     Serial.println(F("Encoste o dedo no sensor"));
+    enviarMensagemBackend("Encoste o dedo no sensor");
 
     while (fingerSensor.getImage() != FINGERPRINT_OK);
     
     if (fingerSensor.image2Tz(1) != FINGERPRINT_OK) {
         Serial.println(F("Erro image2Tz 1"));
+        enviarMensagemBackend("Erro image2Tz 1");
         return;
     }
     
     Serial.println(F("Tire o dedo do sensor"));
+    enviarMensagemBackend("Tire o dedo do sensor");
     delay(2000);
 
     while (fingerSensor.getImage() != FINGERPRINT_NOFINGER);
 
     Serial.println(F("Encoste o mesmo dedo no sensor"));
+    enviarMensagemBackend("Encoste o mesmo dedo no sensor");
 
     while (fingerSensor.getImage() != FINGERPRINT_OK);
 
     if (fingerSensor.image2Tz(2) != FINGERPRINT_OK) {
         Serial.println(F("Erro image2Tz 2"));
+        enviarMensagemBackend("Erro image2Tz 2");
         return;
     }
 
     if (fingerSensor.createModel() != FINGERPRINT_OK) {
         Serial.println(F("Erro createModel"));
+        enviarMensagemBackend("Erro createModel");
         return;
     }
 
     if (fingerSensor.storeModel(location) != FINGERPRINT_OK) {
         Serial.println(F("Erro storeModel"));
+        enviarMensagemBackend("Erro storeModel");
         return;
     }
 
     Serial.println(F("Sucesso!!!"));
+    enviarMensagemBackend("Sucesso!!!");
     encerrarCadastroBiometria();
 }
+
 
 void encerrarCadastroBiometria() {
     HTTPClient http;
@@ -313,7 +352,7 @@ void readAndStoreRequest(const char* url_read) {
 
 void sendRFIDtoBackend(const char* rfid) {
     HTTPClient http;
-    String store_url = "http://192.168.0.13:8080/acesso/armazenar";
+    String store_url = "http://10.187.244.75:8080/acesso/armazenar";
     String payload = "{\"rfid\": \"" + String(rfid) + "\"}";
     
     http.begin(store_url);

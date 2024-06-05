@@ -1,3 +1,55 @@
+function aplicarFiltroNomeCurso() {
+  var input = document.getElementById("filtroNomeCurso");
+  var filter = input.value.toUpperCase();
+  var table = document.getElementById("tabelaRelatorio");
+  var tbody = table.getElementsByTagName("tbody")[0];
+  var tr = tbody.getElementsByTagName("tr");
+  for (var i = 0; i < tr.length; i++) {
+    var td = tr[i].getElementsByTagName("td")[2]; // 3ª coluna (0-indexed) contém o nome do curso
+    if (td) {
+      var txtValue = td.textContent || td.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }
+  }
+}
+
+function aplicarFiltroNome() {
+  var filtroNome = document.getElementById('filtroNome').value.toLowerCase();
+  var tabela = document.getElementById('tabelaRelatorio');
+  var linhas = tabela.getElementsByTagName('tbody')[0].getElementsByTagName('tr');
+  for (var i = 0; i < linhas.length; i++) {
+    var linha = linhas[i];
+    var colunaNome = linha.getElementsByTagName('td')[0]; // Considerando que a coluna do nome do aluno é a primeira
+    if (filtroNome === "" || colunaNome.textContent.toLowerCase().includes(filtroNome)) {
+      linha.style.display = "";
+    } else {
+      linha.style.display = "none";
+    }
+  }
+}
+
+function aplicarFiltroNumMatricula() {
+  var inputNumMatricula = document.getElementById('filtroNumMatricula').value.toUpperCase();
+  var tabela = document.getElementById('tabelaRelatorio');
+  var linhas = tabela.getElementsByTagName('tr');
+  for (var i = 0; i < linhas.length; i++) {
+    var colunaNumMatricula = linhas[i].getElementsByTagName('td')[3]; // Índice da coluna do número de matrícula
+    if (colunaNumMatricula) {
+      var textoNumMatricula = colunaNumMatricula.textContent || colunaNumMatricula.innerText;
+      if (textoNumMatricula.toUpperCase().indexOf(inputNumMatricula) > -1) {
+        linhas[i].style.display = '';
+      } else {
+        linhas[i].style.display = 'none';
+      }
+    }
+  }
+}
+
+
 document.addEventListener('DOMContentLoaded', () => {
     preencherTabela();
   

@@ -86,54 +86,29 @@ body {
   
   #menu {
     background-color: #000000;
-    display: flex;
-    justify-content: center; /* Centraliza horizontalmente */
-    align-items: center; /* Centraliza verticalmente */
-    padding: 10px 0;
+    justify-content: center;
+    align-items: center;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     width: 100%;
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.9);
+    padding: 15px;
   }
   
   #menu a {
-    color: white;
+    display: inline-block;
     margin: 0 15px;
+    color: #ffffff;
     text-decoration: none;
-    font-weight: 700;
-    transition: color 0.3s;
+    font-weight: bold;
+    transition: transform 0.3s ease, color 0.3s ease;
   }
   
   #menu a:hover {
+    transform: translateY(-5px);
     color: #ffd700;
-  }
-  
-  #menu .dropdown {
-    position: relative;
-    display: inline-block;
-  }
-  
-  #menu .dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #343a40;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
-    z-index: 1;
-  }
-  
-  #menu .dropdown-content a {
-    color: white;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-    transition: background-color 0.3s;
-  }
-  
-  #menu .dropdown-content a:hover {
-    background-color: #575757;
-  }
-  
-  #menu .dropdown:hover .dropdown-content {
-    display: block;
   }
 
 /* Estilos para o conteúdo da página */
@@ -246,3 +221,4 @@ lnk2 {
 .lnk2 .lista-link:hover {
     background-color: #b0b0b08f;
 }
+
