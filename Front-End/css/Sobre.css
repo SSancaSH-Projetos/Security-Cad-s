@@ -345,7 +345,7 @@ body {
 }
 
 .card:hover {
-  transform: translateY(-5px);
+  transform: translateY(-px);
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
 }
 
@@ -366,7 +366,7 @@ body {
 }
 
 .card:hover .overlay {
-  opacity: 1;
+  opacity: 9;
 }
 
 .text {
@@ -384,7 +384,7 @@ body {
 
 .card-text {
   opacity: 0;
-  transition: opacity 0.5s ease-in-out;
+  transition: opacity 0.s ease-in-out;
 }
 
 .card:hover .text,
@@ -399,7 +399,7 @@ body {
   bottom: 0;
   width: 50px;
   height: 595px;
-  background-color: #e514f8;
+  background-color: #000000;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -412,7 +412,7 @@ body {
 .botao-expansivel .icone-seta {
   transform: rotate(-90deg);
   /* Inicialmente, a seta aponta para a esquerda */
-  color: #fff;
+  color: #ced100;
 }
 
 .conteudo-expansivel {
@@ -421,8 +421,8 @@ body {
   bottom: 0;
   width: 0;
   /* Inicialmente, o conteúdo está oculto */
-  height: 595px;
-  background-color: #fff;
+  height: 730px;
+  background: linear-gradient(135deg, #900da1 55%, #d20ed5 25%);
   overflow-y: auto;
   transition: width 0.3s, left 0.3s;
   /* Animações para exibir o conteúdo e mover o botão */
@@ -436,7 +436,7 @@ body {
 }
 
 .botao-expandido .icone-seta {
-  transform: rotate(90deg);
+  transform: rotate(100deg);
   /* Quando expandido, a seta aponta para a direita */
 }
 
@@ -450,13 +450,13 @@ body {
 /* estilo para os cartões superiores */
 .cartoes-superiores {
   display: flex;
-  justify-content: space-between;
+  justify-content:space-evenly;
   margin-bottom: 20px;
   /* espaço entre os dois containers */
 }
 
 .cartoes-superiores .novo-card {
-  width: calc(20%);
+  width: calc(30%);
   /* 49% do espaço disponível, com margem */
 }
 
@@ -464,11 +464,11 @@ body {
 .cartoes-inferiores {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: space-evenly;
 }
 
 .cartoes-inferiores .novo-card {
-  width: calc(20%);
+  width: calc(30%);
   /* 24% do espaço disponível, com margem */
   margin-bottom: 20px;
 }
@@ -503,7 +503,7 @@ body {
 }
 
 .novo-card-back {
-  background-color: #ff0000;
+  background: linear-gradient(135deg, #a499a5 55%, #504f50 25%);
   transform: rotateY(180deg);
   display: flex;
   flex-direction: column;
@@ -520,8 +520,8 @@ body {
 }
 
 .novo-circle {
-  width: 80px;
-  height: 80px;
+  width: 100px;
+  height:100px;
   background-color: #e514f8;
   border-radius: 50%;
   overflow: hidden;
@@ -536,15 +536,70 @@ body {
 
 .novo-role,
 .novo-description {
-  font-size: 14px;
-  margin-bottom: 10px;
+  font-size: 20px;
+  margin-bottom: 20px;
 }
 
 .novo-social-icons {
-  display: flex;
+  display: flexbox;
 }
 
 .novo-social-icons a {
-  margin-right: 10px;
-  color: #333;
+  margin-right: 60px;
+  color: #ffffff;
 }
+
+
+
+.blinking-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: blink 8s infinite;
+  text-align: center;
+  opacity: 1;
+}
+
+
+
+
+
+.overlay-content {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.card:hover .overlay-content {
+    display: block;
+    animation: fadeIn 0.5s;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+
+
+
+
+

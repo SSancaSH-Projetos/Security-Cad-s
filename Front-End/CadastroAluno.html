@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cadastro de Aluno</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+  <!-- Adicionando fonte personalizada -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+  <!-- Adicionando FontAwesome -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="css/CadastroAluno.css" />
+</head>
+
+<body>
+  <!-- Header -->
+  <div id="header">
+    <img id="logo" src="img/LogoDaEquipe.png" alt="Logo" />
+  </div>
+
+  <!-- Menu -->
+  <nav id="menu">
+    <a href="PaginaInicial.html"><i class="fas fa-home"></i> Página Inicial</a>
+    <a href="Relatorio.html"><i class="fas fa-file-alt"></i> Relatório</a>
+    <a href="CadastroAluno.html"><i class="fas fa-user-plus"></i> Cadastro Aluno</a>
+    <a href="Sobre.html"><i class="fas fa-question-circle"></i> Sobre</a>
+  </nav>
+
+  <!-- Formulário de Cadastro de Aluno -->
+  <div class="container">
+    <form id="cadastroAlunoForm">
+      <h2>Cadastro de Aluno</h2>
+
+      <label for="nome">Nome:</label>
+      <input type="text" id="nome" name="nome" pattern="[A-Za-zÀ-ú\s]+" required
+        title="Somente letras e acentos são permitidos" />
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required />
+
+      <label for="numeroArmario">Número do Armário:</label>
+      <input type="text" id="numeroArmario" name="numeroArmario" pattern="[0-9]+" required
+        title="Somente números são permitidos" />
+
+      <label for="numeroRFID">Número do Cartão RFID:</label>
+      <input type="text" id="numeroCartaoRFID" name="numeroCartaoRFID" pattern="[A-Za-z0-9]+" required
+        title="Somente letras e números são permitidos" />
+
+      <button id="lerRFIDBtn" class="btn btn-primary">Ler Cartão RFID</button>
+      <span id="responseMessage" class="ml-3"></span>
+
+      <div id="responseMessage"></div>
+
+      <label for="matricula">Matrícula:</label>
+      <input type="text" id="matricula" name="matricula" pattern="[0-9]+" required
+        title="Somente números são permitidos" />
+
+      <label for="curso">Curso:</label>
+      <input type="text" id="curso" name="curso" pattern="[A-Za-z0-9\s]+" required
+        title="Apenas letras e números são permitidos" />
+
+      <label for="biometria">Biometria:</label>
+      <div id="campoBiometria">
+        <button type="button" id="iniciarCadastroo" class="btn btn-primary ml-2" onclick="iniciaCadastroBiometria()">
+          Iniciar Cadastro
+        </button>
+      </div>
+
+      <!-- Modal -->
+      <div class="modal fade" id="biometriaModal" tabindex="-1" role="dialog" aria-labelledby="biometriaModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="biometriaModalLabel">Iniciar Cadastro de Biometria</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <!-- Conteúdo do modal -->
+              <p id="modalTexto">Iniciando o cadastro de biometria...</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <br />
+      <button type="submit" id="botaoCadastro" class="btn btn-primary">
+        Cadastrar
+      </button>
+    </form>
+    <div id="mensagem" class="mt-3"></div>
+
+    <div class="modal fade" id="modalRFIDSucesso" tabindex="-1" role="dialog" aria-labelledby="modalRFIDSucessoLabel"
+      aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="modalRFIDSucessoLabel">
+              RFID Carregado com Sucesso
+            </h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div id="animacaoRFIDSucesso" class="text-center mb-3">
+              <img src="img/verificado.gif" alt="Animation" class="img-fluid" />
+            </div>
+            <div id="mensagemRFIDSucesso" class="text-center">
+              RFID carregado com sucesso!
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">
+              Fechar
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="modalRFIDERRO" tabindex="-1" role="dialog" aria-labelledby="modalRFIDERROLabel"
+      aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="modalRFIDERROLabel">
+              Erro de Cartão RFID Duplicado
+            </h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div id="animacaoRFIDERRO" class="text-center mb-3">
+              <img src="img/ErroDeDados.gif" alt="Animation" class="img-fluid" />
+            </div>
+            <div id="mensagemRFIDERRO" class="text-center">
+              Erro: Este cartão RFID já foi lido anteriormente.
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">
+              Fechar
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="modalMensagem" tabindex="-1" role="dialog" aria-labelledby="modalMensagemLabel"
+      aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="modalMensagemLabel">
+              Secure Lockers
+            </h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div id="animacaoSucesso" class="text-center mb-3">
+              <img src="img/verificado.gif" alt="Animation" class="img-fluid" />
+            </div>
+            <div id="mensagemBody" class="text-center">
+              Cadastro realizado com sucesso!
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">
+              Fechar
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="modalMensagem" tabindex="-1" role="dialog" aria-labelledby="modalMensagemLabel"
+      aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="modalMensagemLabel">
+              Secure Lockers
+            </h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div id="animacaoSucesso" class="text-center mb-3">
+              <img src="/img/ErroDeDados.gif" alt="Animation" class="img-fluid" />
+            </div>
+            <div id="mensagemBody" class="text-center">
+              Erro ao cadastrar aluno.
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">
+              Fechar
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="js/CadastroAluno.js"></script>
+</body>
+
+</html>

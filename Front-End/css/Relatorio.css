@@ -57,9 +57,9 @@
 
 body {
   font-family: 'Roboto', sans-serif;
-  background: url('../img/imagem 7.jpg') no-repeat center center fixed;
+  background: linear-gradient(135deg, #900da1 55%, #d20ed5 25%);
   background-size: cover;
-  color: #333;
+  color: #ffffff;
 }
 #logo {
   width: 70px; /* Tamanho menor para ocupar menos espaço vertical */
@@ -68,7 +68,7 @@ body {
 }
 
 #header {
-  background-color: #460048;
+  background-color: #dc19e2;
   color: white;
   padding: 20px;
   text-align: left; /* Alinhar o texto à esquerda */
@@ -155,18 +155,19 @@ body {
 
 .card {
   border: none;
-  border-radius: 10px;
+  border-radius: 60px;
   overflow: hidden;
 }
 
 .card-body {
-  padding: 2rem;
-  background-color: white;
+  padding: 4rem;
+  background-color: rgb(204, 184, 221);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 60px;
 }
 
 .container {
-  max-width: 1200px;
+  max-width: 1000px;
 }
 
 #filtros .btn {
@@ -242,4 +243,73 @@ body {
   text-decoration: none;
   cursor: pointer;
 }
+
+
+
+/* Relatorio.css */
+
+/* Ajusta o tamanho do container principal */
+.container {
+  max-width: 100%;
+}
+
+/* Ajusta o tamanho do cartão de filtros */
+#filtros {
+  padding: 40px;
+}
+
+#filtros .form-group {
+  margin-bottom: 1.5rem;
+}
+
+#filtros .form-group input {
+  width: 100%;
+}
+
+#filtros .btn {
+  width: 100%;
+}
+
+/* Ajusta o tamanho do relatório */
+.card-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.table-responsive {
+  max-height: 70vh; /* Ajuste conforme necessário */
+  overflow-y: auto;
+}
+
+.table {
+  margin-bottom: 0;
+}
+
+.modal-content {
+  max-width: 90%;
+  margin: auto;
+}
+
+.modal-content label {
+  display: block;
+  margin-top: 30px;
+}
+
+.modal-content input {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+#saveButton {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin-top: 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+}
+
+
 

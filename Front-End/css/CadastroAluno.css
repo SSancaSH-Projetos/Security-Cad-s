@@ -1,0 +1,317 @@
+/* Estilo básico para os botões */
+.btn {
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+/* Efeito ao passar o mouse */
+.btn:hover {
+  background-color: #ffd700; /* Cor mais escura para indicar foco */
+  transform: scale(1.05); /* Leve aumento no tamanho */
+}
+
+/* Efeito ao clicar no botão */
+.btn:active {
+  transform: scale(0.95); /* Leve redução no tamanho */
+}
+
+body {
+  font-family: "Roboto", sans-serif; /* Fonte personalizada */
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(
+    135deg,
+    #900da1 55%,
+    #d20ed5 25%
+  ); /* Gradiente roxo */
+  color: #d6c1d2; /* Cor do texto */
+}
+
+#logo {
+    animation: swing 10s ease-in-out infinite;
+    z-index: 3;
+    max-width: 100px;
+  }
+
+#header {
+  position: relative;
+  z-index: 2;
+  background-color: #dc19e2;
+  height: 130px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+#header img {
+  max-width: 200px;
+  height: 100px;
+}
+
+#menu {
+  background-color: #000000;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.9);
+  padding: 15px;
+}
+
+#menu a {
+  display: inline-block;
+  margin: 0 15px;
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: bold;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+#menu a:hover {
+  color: #ffd700;
+}
+
+/* Contêiner para imagem e informações */
+.imagem-container {
+  position: relative;
+}
+
+#menu a:hover {
+  transform: translateY(-5px);
+  color: #ffd700;
+}
+
+@keyframes swing {
+  0% {
+    transform: rotateY(0deg);
+  }
+  50% {
+    transform: rotateY(180deg);
+  }
+  100% {
+    transform: rotateY(0deg);
+  }
+}
+
+.container {
+  max-width: 600px;
+  margin: 30px auto;
+  background-color: #5c005b; /* Cor roxa para o fundo */
+  padding: 30px;
+  box-shadow: 0 0 10px rgba(255, 247, 247, 0.1); /* Sombra leve */
+  border-radius: 8px; /* Bordas arredondadas */
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #fefefe; /* Cor branca para o título */
+}
+
+label {
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+input[type="text"],
+input[type="email"] {
+  width: calc(100% - 22px);
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid #6d4193; /* Cor roxa para a borda */
+  border-radius: 4px;
+  transition: border-color 0.3s;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus {
+  border-color: #900da1; /* Cor rosa ao focar */
+  outline: none;
+}
+
+#campoBiometria {
+  display: flex;
+  align-items: center;
+}
+
+#lerRFIDBtn,
+#iniciarCadastroo,
+#verificarCadastro,
+#botaoCadastro {
+  width: 100%;
+  padding: 10px;
+  margin-top: 20px;
+  background-color: #900da1; /* Cor vermelha */
+  color: #ffffff; /* Texto branco */
+  border: none; /* Remove a borda */
+}
+
+#lerRFIDBtn:hover,
+#iniciarCadastroo:hover,
+#verificarCadastro:hover,
+#botaoCadastro:hover {
+  background-color: #ffd700; /* Cor vermelha mais escura ao passar o mouse */
+}
+
+/* Estiliza a exibição de sucesso do cadastro */
+
+#modalMensagem .modal-header {
+  background-color: #6d4193;
+  color: #ffffff;
+  border-bottom: none;
+}
+
+#modalMensagem .modal-title {
+  font-weight: bold;
+  text-align: center;
+}
+
+#modalMensagem .modal-body {
+  background-color: #6d4193;
+  color: #ffffff;
+}
+
+#modalMensagem .modal-footer {
+  background-color: #6d4193;
+}
+
+#modalMensagem .btn-secondary {
+  background-color: #6d4193;
+  color: #ffffff;
+  border: none;
+}
+
+#modalMensagem .btn-secondary:hover {
+  background-color: #ffd700;
+  color: #000000;
+}
+
+#animacaoSucesso {
+  animation: rotate 2s infinite linear;
+}
+
+#modalMensagem .modal-body img {
+  max-width: 100px;
+  max-height: 100px;
+  display: block;
+  margin: 0 auto;
+}
+
+#modalMensagem .close:hover {
+  color: #ffd700;
+}
+
+#mensagemBody {
+  color: #ffffff;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+/* Estiliza a exibição de sucesso do Carregamento do número de RFID */
+
+#modalRFIDSucesso .modal-header {
+  background-color: #6d4193;
+  color: #ffffff;
+  border-bottom: none;
+}
+
+#modalRFIDSucesso .modal-title {
+  font-weight: bold;
+  text-align: center;
+}
+
+#modalRFIDSucesso .modal-body {
+  background-color: #6d4193;
+  color: #ffffff;
+}
+
+#modalRFIDSucesso .modal-footer {
+  background-color: #6d4193;
+}
+
+#modalRFIDSucesso .btn-secondary {
+  background-color: #6d4193;
+  color: #ffffff;
+  border: none;
+}
+
+#modalRFIDSucesso .btn-secondary:hover {
+  background-color: #ffd700;
+  color: #000000;
+}
+
+#modalRFIDSucesso .close:hover {
+  color: #ffd700;
+}
+
+#modalRFIDSucesso .modal-body img {
+  max-width: 150px;
+  max-height: 150px;
+  display: block;
+  margin: 0 auto;
+}
+
+#mensagemRFIDSucesso {
+  color: #ffffff;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+/* Estiliza a exibição de erro do Carregamento do número de RFID */
+
+#modalRFIDERRO .modal-header {
+  background-color: #6d4193; 
+  color: #ffffff; 
+  border-bottom: none; 
+}
+
+#modalRFIDERRO .modal-title {
+  font-weight: bold; 
+  text-align: center;
+}
+
+#modalRFIDERRO .modal-body {
+  background-color: #6d4193; 
+  color: #ffffff; 
+}
+
+#modalRFIDERRO .modal-footer {
+  background-color: #6d4193; 
+}
+
+#modalRFIDERRO .btn-secondary {
+  background-color: #6d4193; 
+  color: #ffffff; 
+  border: none; 
+}
+
+#modalRFIDERRO .btn-secondary:hover {
+  background-color: #ffd700; 
+  color: #000000;
+}
+
+#animacaoRFIDERRO {
+  animation: rotate 2s infinite linear;
+}
+
+#modalRFIDERRO .modal-body img {
+  max-width: 300px; 
+  max-height: 300px; 
+  display: block; 
+  margin: 0 auto; 
+}
+
+#modalRFIDERRO .close:hover {
+  color: #ffd700; 
+}
+
+#mensagemRFIDERRO {
+  color: #ffffff; 
+  font-size: 1.2rem; 
+  font-weight: bold;
+  text-align: center; 
+}
+

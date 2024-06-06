@@ -22,10 +22,10 @@
 #define WIFI_PASSWORD "12345678"
 
 // URLs do servidor
-const char* pegarPosicaoBiometriaUrl = "http://10.187.244.75:8080/acesso/pegarPosicaoBiometria";
-const char* modoCadastroEndpointUrl = "http://10.187.244.75:8080/acesso/modoCadastroIniciado";
-const char* encerrarCadastroBiometriaUrl = "http://10.187.244.75:8080/acesso/encerrarCadastroBiometria";
-const char* verificarBiometriaUrl = "http://10.187.244.75:8080/acesso/biometria";
+const char* pegarPosicaoBiometriaUrl = "http://10.110.12.35:8080/acesso/pegarPosicaoBiometria";
+const char* modoCadastroEndpointUrl = "http://10.110.12.35:8080/acesso/modoCadastroIniciado";
+const char* encerrarCadastroBiometriaUrl = "http://10.110.12.35:8080/acesso/encerrarCadastroBiometria";
+const char* verificarBiometriaUrl = "http://10.110.12.35:8080/acesso/biometria";
 
 // Constantes e variáveis
 MFRC522 mfrc522(SS_PIN, -1);
@@ -74,7 +74,7 @@ void loop() {
     // Verificação de RFID
     if (currentTime - lastConnectionTime >= connectionInterval) {
         lastConnectionTime = currentTime;
-        readAndStoreRequest("http://10.187.244.75:8080/acesso/consultar/1/");
+        readAndStoreRequest("http://10.110.12.35:8080/acesso/consultar/1/");
     }
 }
 
@@ -115,7 +115,7 @@ void verificarModoCadastro() {
 void enviarMensagemBackend(const char* mensagem) {
     if (WiFi.status() == WL_CONNECTED) {
         HTTPClient http;
-        String mensagemEndpointUrl = "http://10.187.244.75:8080/acesso/mensagemArduino"; // Defina o URL do endpoint do backend
+        String mensagemEndpointUrl = "http://10.110.12.35:8080/acesso/mensagemArduino"; // Defina o URL do endpoint do backend
 
         http.begin(mensagemEndpointUrl);
         http.addHeader("Content-Type", "application/json");
@@ -352,7 +352,7 @@ void readAndStoreRequest(const char* url_read) {
 
 void sendRFIDtoBackend(const char* rfid) {
     HTTPClient http;
-    String store_url = "http://10.187.244.75:8080/acesso/armazenar";
+    String store_url = "http://10.110.12.35:8080/acesso/armazenar";
     String payload = "{\"rfid\": \"" + String(rfid) + "\"}";
     
     http.begin(store_url);

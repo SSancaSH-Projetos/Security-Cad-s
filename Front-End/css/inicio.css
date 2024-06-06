@@ -1,5 +1,57 @@
 
 
+/* Adicione o restante do seu CSS existente aqui */
+
+/* Adicionado para tornar o menu responsivo */
+@media screen and (max-width: 768px) {
+  #menu {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  #menu a {
+    margin: 10px 0;
+  }
+}
+
+/* Ajustes para a imagem de fundo */
+#imgFundo {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 80%;
+    height: 80%;
+    z-index: -1;
+    pointer-events: none;
+}
+
+#imgFundo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.5;
+}
+
+/* Ajustes para a imagem centralizada */
+#imagem-centralizada {
+    display: block;
+    margin: 0 auto;
+    margin-top: 40px;
+    max-width: 100%;
+    height: auto; /* Mudança aqui */
+}
+
+/* Rodapé fixo */
+#footer {
+  text-align: center;
+  padding: 10px 0;
+  background-color: #460048;
+  color: white;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+
 
 /* Adicione o restante do seu CSS existente aqui */
 
@@ -16,7 +68,9 @@
   }
   
   #logo {
-    animation: swing 5s ease-in-out infinite;
+    animation: swing 10s ease-in-out infinite;
+    z-index: 3;
+    max-width: 100px;
   }
 
 
@@ -42,31 +96,25 @@ body {
     height: 100vh;
 }
 
-#logo {
-    width: 70px; /* Tamanho menor para ocupar menos espaço vertical */
-    height: 100px;
-    align-items: center;
-  }
-  
+
+
   #header {
-    background-color: #460048;
-    height: 200px;
+    background-color: #dc19e2;
     color: white;
     padding: 20px;
     text-align: left; /* Alinhar o texto à esquerda */
     display: flex; /* Usar flexbox para alinhar os elementos */
     align-items: center; /* Alinhar os elementos verticalmente */
-  }
+}
+  
+  
   #header img {
     max-width: 200px; /* Ajuste o valor conforme necessário para o tamanho desejado */
     height: 90px;
     display: block;
     margin: 0 auto; /* Centraliza horizontalmente */
   }
-  
-  #logo {
-    max-width: 100px;
-  }
+
   
   
   #menu {
@@ -74,7 +122,7 @@ body {
     justify-content: center;
     align-items: center;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    width: 1506px;
+    width: 1250px;
     position: relative;
     z-index: 2;
     text-align: center;
@@ -114,29 +162,42 @@ body {
     opacity: 0.5; /* Define a opacidade da imagem, ajuste conforme necessário */
 }
 
+/* Adicione este código no seu arquivo CSS (inicio.css) */
 
+/* Adicione este código no seu arquivo CSS (inicio.css) */
+
+/* Estilização para centralizar a imagem verticalmente */
 .lnk2 {
-    text-align: center;
-    padding: 10px 0; /* Padding reduzido para economizar espaço */
-    flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 65vh; /* Ajusta a altura da div para ocupar toda a altura da tela */
 }
 
+/* Ajuste para a imagem centralizada */
 #imagem-centralizada {
-    display: block;
-    margin: 0 auto;
-    margin-top: 40px;
-    max-width: 100%;
-    height: 70%;
+  max-width: 100%;
+  max-height: 100%;
 }
+
+
+/* Adicione este código no seu arquivo CSS (inicio.css) */
 
 #footer {
-  text-align: center;
-  padding: 00px;
-  background-color: #460048;
-  color: white;
-  position: absolute; /* Mudança aqui */
-  bottom: 0px; /* Mudança aqui */
-  width: 100%;
-  flex-shrink: 0;
+  background-color: #dc19e2; /* Cor de fundo rosa */
+  padding: 10px; /* Espaçamento interno */
+  height: 10px; /* Altura desejada */
+  display: flex; /* Usando flexbox para centralizar verticalmente o texto */
+  justify-content: center; /* Centralizando horizontalmente o texto */
+  align-items: center; /* Centralizando verticalmente o texto */
 }
+
+/* Estilização opcional para o texto no rodapé */
+#footer p {
+  margin: 0; /* Removendo margens padrão */
+  font-size: 16px; /* Tamanho da fonte */
+  color: #ffffff; /* Cor do texto (branco) */
+}
+
+
 

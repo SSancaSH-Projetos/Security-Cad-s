@@ -25,8 +25,10 @@
 }
 
 #logo {
-    animation: swing 5s ease-in-out infinite;
-}
+    animation: swing 10s ease-in-out infinite;
+    z-index: 3;
+    max-width: 100px;
+  }
 
 /* Estilo para os números dos armários */
 .assento {
@@ -90,14 +92,10 @@ body {
     background: linear-gradient(135deg, #900da1 55%, #d20ed5 25%);
 }
 
-#logo {
-    width: 70px; /* Tamanho menor para ocupar menos espaço vertical */
-    height: 100px;
-    align-items: center;
-}
+
 
 #header {
-    background-color: #460048;
+    background-color: #dc19e2;
     color: white;
     padding: 20px;
     text-align: left; /* Alinhar o texto à esquerda */
@@ -112,9 +110,7 @@ body {
     margin: 0 auto; /* Centraliza horizontalmente */
 }
 
-#logo {
-    max-width: 100px;
-}
+
 
 #menu {
     background-color: #000000;
