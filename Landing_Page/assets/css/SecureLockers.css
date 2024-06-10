@@ -1,0 +1,651 @@
+body,
+html {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  height: 100%;
+  font-size: 16px;
+  line-height: 0.8cm;
+  color: #666;
+  background-color: #000;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.tituloCardSolucao {
+  display: block;
+  text-align: center;
+  margin-top: 10px;
+  font-size: 1.2em;
+  color: #fff2a5;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  box-shadow: 0 40px 90px #000000;
+  position: relative;
+}
+
+.text-container {
+  display: flex;
+  align-items: center;
+}
+
+.text-container h1 {
+  color: #ffffff;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.image-container {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  margin: 0;
+  z-index: 9999;
+  pointer-events: none;
+  /* Impede que a logo receba eventos do mouse */
+}
+
+.image-container img {
+  width: 150px;
+  /* Ajuste o tamanho conforme necessário */
+  height: auto;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.terceiraImagem,
+.quartaImagem,
+.quintaImagem,
+.sextaImagem {
+  position: relative;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.terceiraImagem::before,
+.quartaImagem::before,
+.sextaImagem::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  /* Altere a opacidade conforme necessário */
+}
+
+.terceiraImagem {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-image: url("/assets/img/expanded.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.terceiraImagem .texto {
+  position: relative;
+  text-align: center;
+  color: #000;
+  font-size: 30px;
+  letter-spacing: 8px;
+  text-transform: uppercase;
+  opacity: 0.7;
+  font-weight: bold;
+  z-index: 1;
+}
+
+@media (max-width: 768px) {
+  .terceiraImagem {
+    min-height: 60vh;
+  }
+}
+
+.quartaImagem {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-image: url("/assets/img/GitHubIA.jpg");
+  background-position: center;
+  background-color: white;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.quartaImagem .texto {
+  position: relative;
+  text-align: center;
+  color: #000;
+  font-size: 30px;
+  letter-spacing: 8px;
+  text-transform: uppercase;
+  opacity: 0.7;
+  font-weight: bold;
+  z-index: 1;
+}
+
+@media (max-width: 768px) {
+  .quartaImagem {
+    min-height: 60vh;
+  }
+
+  .tituloCardSolucao {
+    font-size: 0.7em;
+  }
+}
+
+.quintaImagem {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-image: url("/assets/img/LogoSecureLockers.png");
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.quintaImagem .texto {
+  position: relative;
+  text-align: center;
+  color: #000;
+  font-size: 30px;
+  letter-spacing: 8px;
+  text-transform: uppercase;
+  opacity: 0.7;
+  font-weight: bold;
+  z-index: 1;
+}
+
+@media (max-width: 768px) {
+  .quintaImagem {
+    min-height: 60vh;
+  }
+}
+
+.sextaImagem {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-image: url("/assets/img/ProdutoDoProjeto.jpeg");
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.sextaImagem .texto {
+  position: relative;
+  text-align: center;
+  color: #000;
+  font-size: 30px;
+  letter-spacing: 8px;
+  text-transform: uppercase;
+  opacity: 0.7;
+  font-weight: bold;
+  z-index: 1;
+}
+
+@media (max-width: 768px) {
+  .sextaImagem {
+    min-height: 60vh;
+  }
+}
+
+.secao {
+  text-align: center;
+  padding: 20px 60px;
+  background-color: #cc00ff;
+  color: rgb(0, 0, 0);
+  font-weight: bold;
+  font-size: 30px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  line-height: 1.5;
+}
+
+.secaoClara {
+  background-color: #cc00ff;
+  color: rgb(0, 0, 0);
+  font-weight: bold;
+  font-size: 40px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  line-height: 1.8;
+  height: 105vh;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.secaoClara>div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin: 0 auto;
+  height: 100%;
+}
+
+.secaoClara p {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+  .secaoClara>div {
+    flex-direction: column;
+  }
+
+  .secaoClara img {
+    max-width: 100%;
+    /* Faz com que a imagem ocupe 100% da largura em telas menores */
+  }
+}
+
+.secaoEscura {
+  background-color: #000000d9;
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 30px;
+  line-height: 1.8;
+  width: 100%;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100vh;
+  box-sizing: border-box;
+}
+
+.secaoEscura img {
+  max-width: 50%;
+  height: auto;
+  margin-right: 20px;
+}
+
+.secaoEscura p {
+  max-width: 50%;
+  text-align: left;
+  margin: 0;
+  line-height: 1.5;
+  /* Ajuste o espaçamento entre as linhas */
+}
+
+.secaoEscura p span {
+  display: block;
+  margin-top: 10px;
+  /* Adicione margem entre as hashtags */
+}
+
+@media (max-width: 768px) {
+  .secaoEscura {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .secaoEscura img,
+  .secaoEscura p {
+    max-width: 100%;
+  }
+}
+
+.texto {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  text-align: center;
+  color: #000;
+  font-size: 30px;
+  letter-spacing: 8px;
+  text-transform: uppercase;
+  opacity: 0.7;
+  font-weight: bold;
+}
+
+.rotulo {
+  background-color: #ffffff;
+  color: #000000;
+  padding: 20px;
+  font-weight: bold;
+  font-size: 30px;
+}
+
+@media (max-width: 560px) {
+
+  .terceiraImagem,
+  .quartaImagem,
+  .quintaImagem,
+  .sextaImagem {
+    background-attachment: scroll;
+  }
+}
+
+
+.card-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  width: 23%;
+  background: #cc00ff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 100px;
+}
+
+.card-image img {
+  width: 100%;
+  height: auto;
+  border-bottom: 1px solid #eee;
+}
+
+.card-content {
+  padding: 5px;
+}
+
+.card-content h2 {
+  margin-top: 0;
+  font-size: 1em;
+  text-align: center;
+  color: white;
+}
+
+.card-content .nomeAluno {
+  margin-top: 0;
+  font-size: 1.2em;
+  text-align: center;
+  color: #000;
+}
+
+
+.icon-container {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 10px;
+  background: #9900cc;
+  /* Cor de fundo opcional para a área dos ícones */
+  display: flex;
+  justify-content: space-between;
+}
+
+.icon-container img {
+  width: 40px;
+  /* Ajuste conforme necessário */
+  height: auto;
+  bottom: 0;
+}
+
+.containerCardSolucao {
+  display: flex;
+  padding: 20px;
+
+  justify-content: space-between;
+}
+
+.cardIndividual {
+  width: 30%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.textoPrincipal {
+  font-size: 0.7em;
+}
+
+.tituloCardSolucao{
+  font-size: 0.7em;
+}
+
+
+
+/* Para celulares (até 480px) */
+@media (max-width: 480px) {
+
+  body,
+  html {
+    font-size: 14px;
+    line-height: 1.2;
+  }
+
+  .cardIndividual{
+    width: 100%;
+  }
+
+  .cartaoImagem{
+    display: none;
+  }
+
+
+  .containerCardSolucao {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+
+
+
+  .tituloCardSolucao {
+    font-size: 0.7em;
+  }
+
+  .rotulo {
+    font-size: 1em;
+  }
+
+  .card-container {
+    flex-direction: column;
+  }
+
+  .textoPrincipal {
+    font-size: 0.8em;
+  }
+
+
+  .textoFooter {
+    font-size: 0.5em;
+  }
+
+  .container {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px;
+  }
+
+  .text-container h1 {
+    font-size: 24px;
+  }
+
+  .image-container img {
+    width: 100px;
+  }
+
+  .terceiraImagem .texto,
+  .quartaImagem .texto,
+  .quintaImagem .texto,
+  .sextaImagem .texto {
+    font-size: 24px;
+    letter-spacing: 4px;
+  }
+
+  .secao {
+    font-size: 24px;
+    padding: 10px;
+  }
+
+  .secaoClara {
+    font-size: 30px;
+    padding: 10px;
+    height: auto;
+  }
+
+  .secaoClara>div {
+    flex-direction: column;
+  }
+
+  .secaoEscura {
+    font-size: 24px;
+    flex-direction: column;
+    text-align: center;
+    padding: 10px;
+    height: auto;
+  }
+
+  .secaoEscura img,
+  .secaoEscura p {
+    max-width: 100%;
+  }
+
+  .rotulo {
+    font-size: 1em;
+    padding: 5px;
+  }
+
+  .card {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .card-content h2,
+  .card-content .nomeAluno {
+    font-size: 1em;
+  }
+}
+
+/* Para tablets (entre 481px e 768px) */
+@media (min-width: 481px) and (max-width: 768px) {
+
+  body,
+  html {
+    font-size: 15px;
+    line-height: 1.2;
+  }
+
+  .tituloCardSolucao {
+    font-size: 0.7em;
+  }
+
+  .container {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 15px;
+  }
+
+  .text-container h1 {
+    font-size: 26px;
+  }
+
+  .card-container {
+    flex-direction: column;
+  }
+
+  .image-container img {
+    width: 120px;
+  }
+
+  .terceiraImagem .texto,
+  .quartaImagem .texto,
+  .quintaImagem .texto,
+  .sextaImagem .texto {
+    font-size: 26px;
+    letter-spacing: 6px;
+  }
+
+  .secao {
+    font-size: 26px;
+    padding: 15px;
+  }
+
+  .secaoClara {
+    font-size: 34px;
+    padding: 15px;
+    height: auto;
+  }
+
+  .secaoClara>div {
+    flex-direction: column;
+  }
+
+  .secaoEscura {
+    font-size: 26px;
+    flex-direction: column;
+    text-align: center;
+    padding: 15px;
+    height: auto;
+  }
+
+  .secaoEscura img,
+  .secaoEscura p {
+    max-width: 100%;
+  }
+
+  .rotulo {
+    font-size: 26px;
+    padding: 15px;
+  }
+
+  .card {
+    width: 48%;
+    margin-bottom: 30px;
+  }
+
+  .card-content h2,
+  .card-content .nomeAluno {
+    font-size: 1.1em;
+  }
+}
+
+/* Ajustes adicionais para o background-attachment */
+@media (max-width: 768px) {
+
+  .tituloCardSolucao {
+    font-size: 0.7em;
+  }
+
+  .terceiraImagem,
+  .quartaImagem,
+  .quintaImagem,
+  .sextaImagem {
+    background-attachment: scroll;
+  }
+
+  .card-container {
+    flex-direction: column;
+  }
+}
