@@ -11,4 +11,4 @@ setInterval(() => {
         overlay.querySelector('.text').classList.toggle('visible');
         overlay.querySelector('.card-text').classList.toggle('visible');
     });
-}, 10000);
+}, );

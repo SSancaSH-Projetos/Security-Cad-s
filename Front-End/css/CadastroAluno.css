@@ -315,3 +315,20 @@ input[type="email"]:focus {
   text-align: center; 
 }
 
+.modal-content {
+  background-color: #6d4193; /* Cor de fundo personalizada */
+  color: white;
+  font-size: 20px;
+}
+
+/* Estilo personalizado para o texto dentro do modal */
+.modal-body p {
+  color: white;
+  font-weight: bold;
+}
+
+/* Efeito hover para os botões do modal */
+.close::before {
+  background-color: rgb(255, 255, 0);
+  
+}

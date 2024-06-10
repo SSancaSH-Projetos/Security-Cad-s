@@ -1,3 +1,60 @@
+// script.js
+
+document.getElementById('cadastroAlunoForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+    
+    var nome = document.getElementById('nome').value.trim();
+    var email = document.getElementById('email').value.trim();
+    var numeroArmario = document.getElementById('numeroArmario').value.trim();
+    var numeroCartaoRFID = document.getElementById('numeroCartaoRFID').value.trim();
+    var matricula = document.getElementById('matricula').value.trim();
+    var curso = document.getElementById('curso').value.trim();
+
+    
+    // Array para armazenar as informações dos alunos
+    let alunos = [];
+
+    if (!/^[A-Za-zÀ-ú\s]+$/.test(nome)) {
+        alert('Nome deve conter apenas letras e acentos.');
+        return;
+    }
+    if (!/^[0-9]+$/.test(numeroArmario)) {
+        alert('Número do Armário deve conter apenas números.');
+        return;
+    }
+    if (!/^[A-Za-z0-9]+$/.test(numeroCartaoRFID)) {
+        alert('Número do Cartão RFID deve conter apenas letras e números.');
+        return;
+    }
+    if (!/^[0-9]+$/.test(matricula)) {
+        alert('Matrícula deve conter apenas números.');
+        return;
+    }
+    if (!/^[A-Za-z0-9\s]+$/.test(curso)) {
+        alert('Curso deve conter apenas letras e números.');
+        return;
+    }
+
+    var aluno = {
+        nome: nome,
+        email: email,
+        numeroArmario: numeroArmario,
+        numeroCartaoRFID: numeroCartaoRFID,
+        matricula: matricula,
+        curso: curso
+    };
+
+    localStorage.setItem('alunoCadastro', JSON.stringify(aluno));
+    $('#modalMensagem').modal('show');
+    
+    // Limpar o formulário
+    document.getElementById('cadastroAlunoForm').reset();
+});
+
+
+
+
+
 function verificarMatriculaDuplicada(matricula) {
     for (let i = 0; i < localStorage.length; i++) {
         let chave = localStorage.key(i);
@@ -86,7 +143,6 @@ function iniciaCadastroBiometria() {
         })
         .then(numeroPosicao => {
             document.getElementById("numeroArmario").value = numeroPosicao;
-            alert("Cadastro da biometria iniciado.");
 
             // Abre o modal
             $('#biometriaModal').modal('show');
@@ -133,8 +189,7 @@ function atualizarConteudoModal(mensagem) {
 }
 
 
-document.getElementById("cadastroAlunoForm").addEventListener("submit", function (event) {
-    event.preventDefault();
+function submeterDados (){
 
     const url = "http://localhost:8080/aluno/cadastrarInformacoesAluno";
 
@@ -148,6 +203,8 @@ document.getElementById("cadastroAlunoForm").addEventListener("submit", function
         numeroDaBiometria: document.getElementById("numeroArmario").value
     };
 
+    console.log("teste", document.getElementById("nome"));
+    console.log(dadosFormulario);
     // Enviar a solicitação ao backend e aguardar pela resposta do cadastro
     fetch(url, {
         method: "POST",
@@ -173,7 +230,7 @@ document.getElementById("cadastroAlunoForm").addEventListener("submit", function
             document.getElementById("curso").value = "";
             $('#modalMensagem').modal('show');
         });
-});
+};
 
 /*Validação da entrada de dados digitada pelos usúarios*/
 document.getElementById('cadastroAlunoForm').addEventListener('submit', function (event) {
